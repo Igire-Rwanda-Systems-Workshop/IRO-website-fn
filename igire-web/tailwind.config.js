@@ -7,6 +7,12 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+	screens: {
+		'tablet': '640px',  
+		'laptop': '1024px',  
+		'desktop': '1280px',
+	},
+  
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
