@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Image from 'next/image';
 import { useState } from 'react';
+import Footer from "./footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="sticky top-0 bg-white shadow-lg shadow-slate-10 z-10 flex flex-col tablet:px-4 laptop:px-[126px] Laptop:py-3 tablet:py-[14px]">
+        <header className="sticky top-0 bg-white shadow-lg shadow-slate-10 z-10 flex flex-col tablet:px-4 laptop:px-[126px] laptop:py-3 tablet:py-[14px]">
           <div className="flex w-full h-73 justify-between items-center">
             <div className="flex items-center">
               <Image
@@ -47,8 +48,8 @@ export default function RootLayout({ children }) {
                 <p className="text-[35px] leading-6">IRO</p>
               </div>
             </div>
-            
-            <button 
+
+            <button
               className={`tablet:hidden p-2 text-gray-600 ${menuOpen ? 'hidden' : 'block'}`}
               onClick={toggleMenu}
               aria-label="Toggle menu"
@@ -57,16 +58,17 @@ export default function RootLayout({ children }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
             </button>
-            
+
             <nav className={`flex flex-col tablet:flex-row laptop:gap-[75px] tablet:gap-10 text-[16px] tablet:text-[20px] ${color} ${menuOpen ? 'flex-1 block' : 'hidden'} tablet:flex tablet:flex-row`}>
               <a onClick={handleColorChange} href="/">Home</a>
               <a onClick={handleColorChange} href="/about">About</a>
-              <a onClick={handleColorChange} href="/program">Programs</a>
+              <a onClick={handleColorChange} href="/programs">Programs</a>
               <a onClick={handleColorChange} href="/contact">Contact</a>
             </nav>
           </div>
         </header>
         {children}
+        <Footer />
       </body>
     </html>
   );
