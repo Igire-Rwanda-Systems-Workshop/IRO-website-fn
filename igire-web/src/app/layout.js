@@ -45,9 +45,6 @@ export default function RootLayout({ children }) {
               />
               <div>
                 <p className="text-[35px] leading-6">IRO</p>
-                <p className="text-[10px]">
-                  Igire Rwanda <br></br>organization
-                </p>
               </div>
             </div>
             
