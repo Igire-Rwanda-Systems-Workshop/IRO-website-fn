@@ -11,7 +11,7 @@ const About = () => {
         <Image src="/dyna.png" alt="IRO Logo" width={1440} height={688} className="w-full h-auto" />
       </div>
 
-      <div className="mx-4 md:mx-[50px] lg:mx-[150px] px-4 md:px-[30px] lg:px-[60px] py-[20px] lg:py-[40px] flex flex-col relative shadow-2xl bg-white -top-[130px]">
+      <div className="mx-4 md:mx-[50px] lg:mx-[150px] px-4 md:px-[30px] lg:px-[60px] py-[20px] lg:py-[40px] flex flex-col relative shadow-2xl bg-white -top-[200px] md:-top-[320px]">
         <div>
           <div className="text-center text-orange-400 py-4 md:py-[30px] lg:py-[40px] text-[20px] md:text-[22px] lg:text-[24px] font-bold">Our Story</div>
         </div>
@@ -25,8 +25,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className="px-4 md:px-[50px] lg:px-[150px] pb-[20px] md:pb-[30px] lg:pb-[40px] ">
-        <div className="text-orange-400 text-[20px] md:text-[24px] font-bold">Responsibilities</div>
+      <div className="px-4 md:px-[50px] lg:px-[150px] py-[20px] md:py-[40px] lg:py-[40px] -mt-[170px] md:-mt-[300px] ">
+        <div className="text-orange-400 text-[20px] md:text-[24px] font-bold pt-[20px] md:pt-[40px] lg:pt-[50px] ">Responsibilities</div>
         <div className="flex flex-col md:flex-row text-[16px] md:text-[18px] py-[20px] md:py-[30px] lg:py-[40px] gap-[40px] md:gap-[60px]">
           <div className="w-full md:w-[50%]"> 
             <p>i. Aenean aliquam ante vulputate ipsum ullamcorper sollicitudin. Praesent vitae gravida turpis. Nulla facilisi. Nam ac dui dolor. Nullam ultricies fermentum libero, eget placerat lectus aliquam id.</p>
@@ -42,21 +42,21 @@ const About = () => {
       </div>
 
       
-      <div className="px-4 md:px-[50px] lg:px-[150px] text-center py-[40px]">
+      <div className="px-4 md:px-[50px] lg:px-[150px] text-center py-[20px] md:pb-[20px] lg:pb-[30px] ">
       <div className="flex flex-col md:flex-row gap-[40px] md:gap-[100px] lg:gap-[210px]">
 
-  <div className="w-full md:w-[50%] flex flex-col items-center text-[#34A853] ">
+  <div className="w-full md:w-[50%] flex flex-col items-center text-[#34A853] transform transition-transform duration-300 hover:-translate-y-5 hover:border-2 hover:border-[#34A853] ">
     <FaEye className="mr-2 text-[35px] md:text-[45px]" />
-    <span className="text-[20px] md:text-[24px] py-[10px] md:py-[15px]">Vision</span>
-    <div className="text-[16px] md:text-[18px] transform transition-transform duration-300 hover:-translate-y-5 hover:bg-gray-300">
+    <span className="text-[20px] md:text-[24px] pb-[10px] md:pb-[15px]">Vision</span>
+    <div className="text-[16px] md:text-[18px] p-2">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non risus lorem. Nunc interdum enim a dolor luctus, quis ultrices felis dignissim. Nam volutpat dui condimentum, malesuada leo eu, rutrum neque.
     </div>
   </div>
 
-  <div className="w-full md:w-[50%] flex flex-col items-center text-orange-400 ">
+  <div className="w-full md:w-[50%] flex flex-col items-center text-orange-400 transform transition-transform duration-300 hover:-translate-y-5 hover:border-2 hover:border-orange-400">
     <TbTargetArrow className="mr-2 text-[35px] md:text-[45px]" />
-    <span className="text-[20px] md:text-[24px] py-[10px] md:py-[15px]">Mission</span>
-    <div className="text-[16px] md:text-[18px] transform transition-transform duration-300 hover:-translate-y-5 hover:bg-gray-300">
+    <span className="text-[20px] md:text-[24px] pb-[10px] md:pb-[15px]">Mission</span>
+    <div className="text-[16px] md:text-[18px] p-2">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non risus lorem. Nunc interdum enim a dolor luctus, quis ultrices felis dignissim. Nam volutpat dui condimentum, malesuada leo eu, rutrum neque.
     </div>
   </div>

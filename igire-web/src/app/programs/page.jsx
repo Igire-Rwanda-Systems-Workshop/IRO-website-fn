@@ -21,7 +21,7 @@ export default function Programs() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % sheCanCodeGallery.length);
-    }, 3000); 
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, [sheCanCodeGallery.length]);
@@ -34,7 +34,7 @@ export default function Programs() {
     <div className="px-[134px] py-12">
       <h1 className="text-[24px] font-bold text-center mb-8">Programs</h1>
       <div className="bg-white">
-        <p className="text-[18px] font-bold mb-4">ShecanCODE Program <span className='text-gray-500'>( Academy for Women Entrepreneurs / Rwanda )</span> </p> 
+        <p className="text-[18px] font-bold mb-4">ShecanCODE Program  </p> 
         <Image
           src="/Rectangle 53.png"
           alt="Graduation"
@@ -49,14 +49,14 @@ export default function Programs() {
           </p>
           <div className="py-8 border-l-2 border-black">
             <p className="px-4 md:px-12 lg:px-24">
-               iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula 
+               iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula
                 iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula 
                 iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula</p>
           </div>
         </div>
 
         <div className="text-center">
-          <p className="font-bold text-[18px]">ShecanCODE gallery</p>
+          <p className="font-bold text-[18px]">ShecanCODE gallery </p>
           <div className="relative sm:px-0 md:px-[50px] lg:px-[100px] flex flex-col items-center  py-[30px]">
             <div className=" w-full px-2 mb-4">
               <Image
@@ -83,7 +83,7 @@ export default function Programs() {
         </div>
 
         <div className="text py-12">
-          <h2 className="text-[18px] font-bold mb-4">A.W.E Program</h2>
+          <p className="text-[18px] font-bold mb-4">A.W.E Program <span className='text-gray-500'>( Academy for Women Entrepreneurs / Rwanda )</span></p>
           <Image
             src="/awe 1.png"
             alt="Graduation"
@@ -98,7 +98,7 @@ export default function Programs() {
             <div className="py-8 border-l-2 border-black">
               <p className="px-4 md:px-12 lg:px-24">
                 
-                iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula 
+                iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula
                 iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula 
                 iii Nulla non sapien vitae orci porttitor tristique. Vesti,mhklvbulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nuljnylam vehicula</p>
             </div>
