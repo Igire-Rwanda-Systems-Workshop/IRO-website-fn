@@ -16,7 +16,7 @@ const UserCard = ({ name, email, jobTitle, onEdit, onDelete }) => {
         <TbPencil className="text-[#0FA958] cursor-pointer" onClick={onEdit} />
         <RiDeleteBin6Line className="text-[#FF0202] cursor-pointer" onClick={onDelete} />
       </div>
-      <CardContent className="flex items-center justify-center">
+      <CardContent className="flex items-center justify-center bg-[#EAEAEA] rounded-lg">
         <div className="flex flex-col items-center pt-6 gap-4">
           <img src="/userAvatar.png" alt="User Avatar" className="w-12 h-12 rounded-full mb-2" />
           <div className="text-center">

@@ -37,11 +37,11 @@ export default function PartnershipInquiryForm() {
             <div className='font-bold text-white w-full mt-[8.4rem] text-center tablet:text-left'>
                 <h2 className="text-[24px] text-center">For partnership inquiries</h2>
                 <div className="w-full p-8 flex flex-col justify-center laptop:flex-row tablet:flex-col">
-                    <div className="w-full desktop:w-[45.3rem] text-left h-[42.6rem] laptop:w-[45.3rem] bg-white drop-shadow-md desktop:px-[4.4rem] tablet:px-[2rem] px-[1rem]">
-                        <p className="flex items-start justify-between pt-[4.8rem] text-[18px] text-black">Please contact us or drop us a message <span className='text-[#F79E1B] w-[2.3rem]'><RiMailSendLine/></span></p>
+                    <div className="w-full desktop:w-[45.3rem] text-left h-[42.6rem] laptop:w-[45.3rem] bg-white dark:bg-gray-800 drop-shadow-md desktop:px-[4.4rem] tablet:px-[2rem] px-[1rem]">
+                        <p className="flex items-start justify-between pt-[4.8rem] text-[18px] text-black dark:text-white">Please contact us or drop us a message <span className='text-[#F79E1B] w-[2.3rem]'><RiMailSendLine/></span></p>
                         <form onSubmit={handleSubmit} className="space-y-[1.9rem] mt-4 tablet:mt-[4.3rem]">
                             <div>
-                                <label htmlFor="name" className="font-semibold text-black">Name</label>
+                                <label htmlFor="name" className="font-semibold text-black dark:text-white">Name</label>
                                 <Input
                                     id="name"
                                     name="name"
@@ -52,7 +52,7 @@ export default function PartnershipInquiryForm() {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="email" className="font-semibold text-black">Email</label>
+                                <label htmlFor="email" className="font-semibold text-black dark:text-white">Email</label>
                                 <Input
                                     id="email"
                                     name="email"
@@ -64,7 +64,7 @@ export default function PartnershipInquiryForm() {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="message" className="font-semibold text-black">Message</label>
+                                <label htmlFor="message" className="font-semibold text-black dark:text-white">Message</label>
                                 <Textarea
                                     id="message"
                                     name="message"
@@ -75,7 +75,7 @@ export default function PartnershipInquiryForm() {
                                     className="w-full"
                                 />
                             </div>
-                            <Button type="submit" className="tablet:w-[7rem] w-full text-[18px] h-[3rem] mt-[1.9rem] bg-green-500 hover:bg-[#0FA958]">
+                            <Button type="submit" className="tablet:w-[7rem] w-full text-black dark:text-white text-[18px] h-[3rem] mt-[1.9rem] bg-green-500 hover:bg-[#0FA958]">
                                 Send
                             </Button>
                         </form>
@@ -90,10 +90,10 @@ export default function PartnershipInquiryForm() {
                         </div>
                         <div className="mt-[9rem] flex flex-col gap-[1rem] items-center">
                             <h4 className="font-semibold text-[#F79E1B]">Our Social Media</h4>
-                            <div className="flex space-x-4 pb-[4.4rem]">
-                                <CiLinkedin size={39} />
-                                <RiTwitterXFill size={39} className='border-sm' />
-                                <FaInstagram size={39} />
+                            <div className="flex space-x-6 pb-[4.4rem]">
+                                <a href=''><CiLinkedin size={30} className=' text-white hover:text-[#F79E1B]'/></a>
+                                <a href=''><RiTwitterXFill size={25} className='border-sm  text-white hover:text-[#F79E1B]' /></a>
+                                <a href='https://www.instagram.com/igire_rwanda/'><FaInstagram size={25} className=' text-white hover:text-[#F79E1B]'/></a>
                             </div>
                         </div>
                     </div>

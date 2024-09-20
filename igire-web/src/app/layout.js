@@ -5,6 +5,7 @@ import "./globals.css";
 import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Footer from "./footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -54,22 +55,6 @@ export default function RootLayout({ children }) {
               </div>
 
               <button 
-                className="ml-4 p-2 rounded-full border dark:border-gray-600"
-                onClick={toggleDarkMode}
-                aria-label="Toggle Dark Mode"
-              >
-                {isDarkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 15a1 1 0 000 2 7 7 0 110-14 1 1 0 100-2 9 9 0 100 18z" />
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-900 dark:text-gray-100" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
-                  </svg>
-                )}
-              </button>
-
-              <button 
                 className={`tablet:hidden p-2 text-gray-600 dark:text-gray-300 ${menuOpen ? 'hidden' : 'block'}`}
                 onClick={toggleMenu}
                 aria-expanded={menuOpen}
@@ -89,11 +74,27 @@ export default function RootLayout({ children }) {
                 <a href="/about" className={isActive('/about')}>About</a>
                 <a href="/program" className={isActive('/program')}>Programs</a>
                 <a href="/contact" className={isActive('/contact')}>Contact</a>
+                <button 
+                className="ml-4 p-2 rounded-full border dark:border-gray-600"
+                onClick={toggleDarkMode}
+                aria-label="Toggle Dark Mode"
+              >
+                {isDarkMode ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 15a1 1 0 000 2 7 7 0 110-14 1 1 0 100-2 9 9 0 100 18z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-900 dark:text-gray-100" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
+                  </svg>
+                )}
+              </button>
               </nav>
             </div>
           </header>
         )}
         {children}
+        {!isDashboardPage && <Footer />}
       </body>
     </html>
   );
