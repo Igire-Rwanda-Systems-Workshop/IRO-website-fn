@@ -32,12 +32,11 @@ export default function PartnershipInquiryForm() {
     };
 
     return (
-        <div className="flex flex-col items-center w-full bg-gray-100 tablet:px-10 laptop:px-20 desktop:px-[7.7rem]"
+        <div className="flex flex-col items-center w-full bg-gray-100 tablet:px-10 laptop:px-20 desktop:px-[7.7rem] mb-[25rem]"
             style={{ backgroundImage: 'url(/bgContact.png)', backgroundSize: 'cover', height: '35.4rem' }}>
             <div className='font-bold text-white w-full mt-[8.4rem] text-center tablet:text-left'>
                 <h2 className="text-[24px] text-center">For partnership inquiries</h2>
-                <div className="w-full p-8 flex flex-col laptop:flex-row tablet:flex-col">
-                    {/* Form Section */}
+                <div className="w-full p-8 flex flex-col justify-center laptop:flex-row tablet:flex-col">
                     <div className="w-full desktop:w-[45.3rem] text-left h-[42.6rem] laptop:w-[45.3rem] bg-white drop-shadow-md desktop:px-[4.4rem] tablet:px-[2rem] px-[1rem]">
                         <p className="flex items-start justify-between pt-[4.8rem] text-[18px] text-black">Please contact us or drop us a message <span className='text-[#F79E1B] w-[2.3rem]'><RiMailSendLine/></span></p>
                         <form onSubmit={handleSubmit} className="space-y-[1.9rem] mt-4 tablet:mt-[4.3rem]">
@@ -82,7 +81,6 @@ export default function PartnershipInquiryForm() {
                         </form>
                     </div>
 
-                    {/* Contact Information Section */}
                     <div className="flex flex-col items-center pt-[2.5rem] bg-green-500 text-white w-full laptop:w-[26.6rem] rounded-sm h-[42.6rem] mt-8 laptop:mt-0">
                         <h3 className="font-bold text-center text-[24px]">Contact <br /> Information</h3>
                         <div className="space-y-2 flex flex-col text-left gap-6 tablet:gap-[3.9rem] mt-[4rem] px-4">
