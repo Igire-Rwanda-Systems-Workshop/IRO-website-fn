@@ -1,5 +1,6 @@
 import { columns } from "./columns";
 import DataTable from "./data-table";  
+import { HiOutlineSearch } from 'react-icons/hi';
 
 async function getData() {
   // Simulating data fetching
@@ -57,9 +58,10 @@ export default async function DemoPage() {
 
   return (
     <div className="container mx-auto py-10">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center w-full max-w-lg">
           <div className="relative w-full">
+          <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             <input
               type="text"
               placeholder="Search here..."
@@ -69,7 +71,7 @@ export default async function DemoPage() {
           <button className="bg-green-500 rounded-md text-white px-4 py-2 ml-2">Search</button>
         </div>
         <div>
-          <select className="border border-3 border-black px-4 py-2 rounded-md">
+          <select className="border border-3 border-black px-4 py-5 rounded-md">
             <option>Filter By</option>
             <option value="pending">Pending</option>
             <option value="approved">Approved</option>
@@ -78,15 +80,15 @@ export default async function DemoPage() {
         </div>
       </div>
 
-      <div className="flex text-xl flex-row justify-between">
+      <div className="flex text-xl py-[20px] flex-row justify-between">
         <div >Purchase Request</div>
         <div>Balance: <span className="text-orange-400">100,000,000</span> Rwf</div>
       </div>
 
-      <div className="py-2">
+      <div className=" flex flex-col gap-[24px]">
         <h3>Request</h3>
         {/* Pass data to DataTable */}
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data}/>
       </div>
 
       <div className="mt-4">
