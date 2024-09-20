@@ -66,7 +66,7 @@ const About = () => {
 
       
       <div className="px-4 md:px-[100px] lg:px-[300px] py-[40px] md:py-[60px] lg:py-[80px]">
-        <div className="text-[20px] md:text-[24px] pb-[10px] md:pb-[20px] text-black text-center font-bold">Founders</div>
+        <div className="text-[20px] md:text-[24px] pb-[10px] md:pb-[20px] text-black dark:text-white text-center font-bold dark:text-white">Founders</div>
         <div className="flex flex-col md:flex-row justify-around items-center gap-[30px] md:gap-[50px] lg:gap-[100px]">
           <div className="text-center">
             <Image src="/mbnd 1.png" alt="IRO Logo" width={220} height={250} className="py-[20px]" />
@@ -81,6 +81,7 @@ const About = () => {
         </div>
       </div>
     </section>
+   
   );
 }
 
