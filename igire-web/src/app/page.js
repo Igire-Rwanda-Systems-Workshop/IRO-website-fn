@@ -119,13 +119,13 @@ export default function Home() {
                 <p className="flex text-center font-bold">Train the next generation in <br></br>software developemnt</p>
                 <p className="flex text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLor</p>
                 <div className="flex items-center gap-[1rem]">
-                  <p>Visit website</p>
+                  <a href="https://www.shecancodeschool.org/"><p>Visit website</p>
                   <Image
                     src="/link.png"
                     alt="LINK"
                     width={34}
                     height={12}
-                  />
+                  /></a>
                 </div>
               </div>
             </div>
@@ -142,13 +142,13 @@ export default function Home() {
                   <p className="flex text-center font-bold">Train the next generation in <br></br>software developemnt</p>
                   <p className="flex text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLor</p>
                   <div className="flex items-center gap-[1rem]">
-                    <p>Visit website</p>
+                    <a href=""><p>Visit website</p>
                     <Image
                       src="/link.png"
                       alt="LINK"
                       width={34}
                       height={12}
-                    />
+                    /></a>
                   </div>
                 </div>
               </div>

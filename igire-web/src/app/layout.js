@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Footer from "./footer";
+import { MdDarkMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -80,13 +82,9 @@ export default function RootLayout({ children }) {
                 aria-label="Toggle Dark Mode"
               >
                 {isDarkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 15a1 1 0 000 2 7 7 0 110-14 1 1 0 100-2 9 9 0 100 18z" />
-                  </svg>
+                  <MdDarkMode/>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-900 dark:text-gray-100" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
-                  </svg>
+                  <MdOutlineDarkMode/>
                 )}
               </button>
               </nav>
