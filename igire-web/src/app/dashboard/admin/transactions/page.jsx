@@ -1,4 +1,4 @@
-"use client"; // Ensure this is added if you are using Next.js in client-side components
+"use client"; 
 
 import React, { useState, useMemo, useEffect } from 'react';
 import {
@@ -18,7 +18,6 @@ import {
 } from '@/components/ui/dialog';
 import Image from 'next/image';
 
-// Simulated data fetching
 async function getData() {
   return [
     {
@@ -70,20 +69,18 @@ async function getData() {
 }
 
 export default function DemoPage() {
-  const [data, setData] = useState([]); // State to hold data
-  const [search, setSearch] = useState(''); // Search input state
-  const [filter, setFilter] = useState(''); // Status filter state
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState(''); 
 
-  // Fetch data asynchronously on component mount
   useEffect(() => {
     async function fetchData() {
       const result = await getData();
       setData(result); // Store fetched data in state
     }
     fetchData();
-  }, []); // Run once on component mount
+  }, []); 
 
-  // Define columns directly within the page
   const columns = [
     {
       accessorKey: "date",
@@ -126,17 +123,16 @@ export default function DemoPage() {
   ];
 
   const DataTable = ({ columns, data }) => {
-    const [selectedRow, setSelectedRow] = useState(null); // Track the selected row data
+    const [selectedRow, setSelectedRow] = useState(null); 
 
     const handleRowClick = (row) => {
       setSelectedRow(row.original); // Open the dialog with selected row's data
     };
 
     const closeDialog = () => {
-      setSelectedRow(null); // Close the dialog
+      setSelectedRow(null); 
     };
 
-    // Filter data based on search and status
     const filteredData = useMemo(() => {
       if (!Array.isArray(data)) return []; 
       return data.filter((row) => {
@@ -246,18 +242,19 @@ export default function DemoPage() {
                 {/* Placeholder Image */}
                 <div className="ml-5">
                   <Image 
-                    src={'/Rectangle 81.png'}  // Placeholder or default image
+                    src={'/Rectangle 81.png'}  
                     alt={selectedRow.product || 'Office chair'} 
-                    width={200} 
-                    height={350} 
+                    width={180} 
+                    height={300} 
                     className="object-contain rounded-md" 
                   />
                 </div>
               </div>
 
               <DialogFooter className="flex justify-center items-center w-full">
+            
                 <Button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-                  Compare in stock
+                  <a href="transactions/ceo-compare">Compare in stock</a>
                 </Button>
               </DialogFooter>
             </DialogContent>
@@ -269,7 +266,7 @@ export default function DemoPage() {
 
   return (
     <div className="container px-6 py-6">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <div className="flex items-center w-full max-w-lg">
           <div className="relative w-full">
             <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -298,13 +295,12 @@ export default function DemoPage() {
         </div>
       </div>
 
-      <div className="flex text-xl pb-[20px] flex-row justify-between">
+      <div className="flex text-lg pb-[20px] flex-row justify-between">
         <div>Purchase Request</div>
         <div>Balance: <span className="text-orange-400">100,000,000</span> Rwf</div>
       </div>
 
       <div>
-        <p className="pb-2">Purchase</p>
         <DataTable columns={columns} data={data} />
       </div>
     </div>

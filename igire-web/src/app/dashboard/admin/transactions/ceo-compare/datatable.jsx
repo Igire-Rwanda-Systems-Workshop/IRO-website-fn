@@ -24,7 +24,7 @@ export function Datatable({ columns, data, isPaginated }) {
     getPaginationRowModel: isPaginated ? getPaginationRowModel() : undefined, // Enable pagination only if isPaginated is true
     initialState: {
       pagination: {
-        pageSize: isPaginated ? 5 : data.length, 
+        pageSize: isPaginated ? 3 : data.length, 
       },
     },
   });

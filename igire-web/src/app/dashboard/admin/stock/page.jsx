@@ -80,7 +80,7 @@ export default function CeoStock() {
         </div>
         <div>
           <select
-            className="border border-3 border-black px-2 py-2 rounded-md"
+            className="border text-sm border-3 border-black px- py-2 rounded-md"
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
           >
@@ -91,7 +91,7 @@ export default function CeoStock() {
         </div>
       </div>
       <div>
-        <p className="py-6 text-xl">Stock overview</p>
+        <p className="py-6 text-lg">Stock overview</p>
       </div>
       <div className="rounded-md border">
         <Table>

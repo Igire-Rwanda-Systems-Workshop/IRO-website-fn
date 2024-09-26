@@ -26,11 +26,11 @@ export default function DashboardNavBar({ children }) {
     const pathname = usePathname();
     const getPageTitle = () => {
         switch (pathname) {
-            case '/dashboard/users':
+            case '/dashboard/admin/users':
                 return 'Users';
-            case '/dashboard/transaction':
+            case '/dashboard/admin/transaction':
                 return 'Transactions';
-            case '/dashboard/stock':
+            case '/dashboard/admin/stock':
                 return 'Stock';
             default:
                 return 'Dashboard';
@@ -39,7 +39,7 @@ export default function DashboardNavBar({ children }) {
 
     return (
         <div className="flex flex-col">
-            <header className="flex h-14 desktop:h-[55px] items-center gap-4 bg-slate-100 px-6 py-[2.5rem]">
+            <header className="sticky top-0 flex h-14 desktop:h-[55px] items-center gap-4 bg-slate-100 px-6 py-[2.5rem]">
                 <Sheet>
                     <SheetTrigger className="min-[1024px]:hidden p-2 transition">
                         <HamburgerMenuIcon />

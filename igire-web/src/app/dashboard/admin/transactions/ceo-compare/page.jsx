@@ -11,6 +11,7 @@ import {
 import { Datatable } from './datatable';
 import { dataComparePurchaseOrder, dataSimilarProducts } from './data';
 import { IoClose } from 'react-icons/io5'; // Import a close icon
+ 
 
 export default function CeoCompare() {
 
@@ -80,26 +81,26 @@ const columnsSimilarProducts = [
   );
 
   return (
-    <div className="container px-6 py-4">
+    <div className="container px-6 pt-4 pb-2">
       <div className=" flex justify-end">
         
         <button
           className="text-black border border-2 border-black py-1 px-2 rounded-md"
-          onClick={() => setIsInquireDialogOpen(true)}  // Open Inquire dialog on click
+          onClick={() => setIsInquireDialogOpen(true)}  
         >
           Inquire
         </button>
       </div>
 
-      <div className="mb-6">
-        <h3 className="text-xl mb-[10px]">Compare purchase order with stock</h3>
+      <div className="mb-4">
+        <h3 className="text-lg mb-[10px]">Compare purchase order with stock</h3>
         <Datatable columns={columnsComparePurchaseOrder} data={dataComparePurchaseOrder} isPaginated={false}/>
       </div>
       <div className="flex justify-end space-x-4 ">
         <button className="bg-green-500 text-white py-1 px-2 rounded-md">Approve</button>
         <button
           className="bg-red-500 text-white py-1 px-2 rounded-md"
-          onClick={() => setIsDenyDialogOpen(true)}  // Open Deny dialog on click
+          onClick={() => setIsDenyDialogOpen(true)}  
         >
           Deny
         </button>
@@ -107,7 +108,7 @@ const columnsSimilarProducts = [
 
       <div>
         <div>
-          <h3 className="text-xl mb-[10px]">Similar products in stock</h3>
+          <h3 className="text-lg mb-[10px]">Similar products in stock</h3>
         </div>
         <div className="flex items-center w-full mb-4 max-w-lg">
           <div className="relative w-full">
@@ -135,7 +136,7 @@ const columnsSimilarProducts = [
             </button>
 
             {/* Dialog Content */}
-            <h2 className="text-xl font-semibold mb-4 text-center">Inquire clarification</h2>
+            <h2 className="text-lg font-semibold mb-4 text-center">Inquire clarification</h2>
             <div className="space-y-4">
               <div>
                 <strong>PurchasedId:</strong> Mark board

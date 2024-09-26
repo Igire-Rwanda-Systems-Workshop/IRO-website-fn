@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
                     {!isDashboardPage && (
           <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-10 flex flex-col tablet:px-4 laptop:px-[126px] laptop:py-3 tablet:py-[14px]">
             <div className="flex w-full h-73 justify-between items-center">
-              <div className="flex items-center">
+              <div className="flex items-center gap-2">
                 <Image
                   src="/logo.png"
                   alt="LOGO"
@@ -62,7 +62,9 @@ export default function RootLayout({ children }) {
                   className="rounded-md"
                 />
                 <div>
-                  <p className="text-[35px] leading-6">IRO</p>
+                  <p className="text-lg leading-6 flex flex-col">Igire Rwanda
+                    <span className="text-md"> Organization</span>
+                  </p>
                 </div>
               </div>
 
@@ -86,8 +88,9 @@ export default function RootLayout({ children }) {
                 <a href="/about" className={isActive('/about')}>About</a>
                 <a href="/program" className={isActive('/program')}>Programs</a>
                 <a href="/contact" className={isActive('/contact')}>Contact</a>
+
                 <button 
-                className="ml-4 p-2 rounded-full border dark:border-gray-600"
+                className="p-2"
                 onClick={toggleDarkMode}
                 aria-label="Toggle Dark Mode"
               >

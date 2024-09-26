@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 
-const AddUserModal = ({ isOpen, onClose }) => {
+const EditUserModal = ({ isOpen, onClose, user, onUpdate }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
 
-  const handleAddUser = () => {
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+      setRole(user.role);
+    }
+  }, [user]);
 
-    console.log({ name, email, password, role });
+  const handleUpdateUser = () => {
+
+
+    onUpdate({ name, email, password, role });
     onClose(); 
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg bg-[#F8F8F8] items-center border-none rounded-xl px-18 p-6">
+      <DialogContent className="max-w-lg bg-[#F8F8F8] border-none">
         <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold">Add New User</DialogTitle>
+          <DialogTitle className="text-center text-xl font-bold">Edit User</DialogTitle>
         </DialogHeader>
         <div className="space-y-4">
           <div className="flex flex-col">
@@ -45,7 +54,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
             />
           </div>
           <div className="flex flex-col">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Password (leave blank to keep current)</Label>
             <Input 
               id="password"
               placeholder="Password" 
@@ -57,7 +66,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
           </div>
           <div className="flex flex-col">
             <Label htmlFor="role">Role</Label>
-            <Select id="role" onValueChange={setRole}>
+            <Select id="role" value={role} onValueChange={setRole}>
               <SelectTrigger>
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>
@@ -69,12 +78,12 @@ const AddUserModal = ({ isOpen, onClose }) => {
             </Select>
           </div>
         </div>
-        <DialogFooter className="flex justify-center mt-6">
-          <Button onClick={handleAddUser} className="bg-[#0FA958] text-white px-8 py-2">Submit</Button>
+        <DialogFooter className="flex mt-6">
+          <Button onClick={handleUpdateUser} className="bg-[#0FA958] text-white px-8 py-2">Update</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   );
 };
 
-export default AddUserModal;
+export default EditUserModal;
