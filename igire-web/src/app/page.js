@@ -26,7 +26,7 @@ export default function Home() {
               <h1 className="text-[24px] tablet:text-[32px] laptop:text-[50px] font-bold">
                 Igire Rwanda Organization
               </h1>
-              <p className="text-[14px] tablet:text-[18px] laptop:text-[25px] mt-[38px]">
+              <p className="text-[14px] tablet:text-md laptop:text-xl mt-[38px]">
                 Empowering the youth to achieve self-reliance
               </p>
               <Button variant="default" className="mt-4 text-white">
@@ -44,7 +44,7 @@ export default function Home() {
             <h1 className="text-[24px] font-bold">About</h1>
           </div>
 
-          <div className="flex flex-col gap-[30px] text-black dark:text-black">
+          <div className="flex flex-col gap-[30px] dark:text-black">
             <div className="flex flex-col p-4 tablet:p-8 laptop:px-[82px] laptop:py-[37px] bg-[#F9F9F9] border border-[#F79E1B] 
               transition ease-in-out delay-150 duration-300 transform hover:scale-105 hover:shadow-lg gap-4 tablet:gap-6 laptop:gap-[1.5rem]">
               <div className="flex justify-center gap-[40px] tablet:justify-start">
@@ -54,7 +54,7 @@ export default function Home() {
                   width={34}
                   height={12}
                 />
-                <p className="text-[24px] font-bold">Vision</p>
+                <p className="text-[24px] font-semibold">Vision</p>
               </div>
               <div>
                 <p className="text-[12px] tablet:text-[14px] laptop:text-[18px] text-center">
@@ -75,10 +75,10 @@ export default function Home() {
                   width={30}
                   height={12}
                 />
-                <p className="text-[24px] font-bold">Mission</p>
+                <p className="text-[24px] font-semibold">Mission</p>
               </div>
               <div>
-                <p className="text-[12px] tablet:text-[14px] laptop:text-[18px] text-center">
+                <p className="text-[12px] tablet:text-[14px] laptop:text-[18px] text-center font-light">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit,
                   sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet,
@@ -98,7 +98,7 @@ export default function Home() {
             <h1 className="text-[24px] font-bold">Programs</h1>
           </div>
           <div className="flex flex-col items-center text-center space-y-4 transition ease-in-out delay-150">
-            <p className="font-bold text-[18px]">Unlock your potential with our cutting-edge programs</p>
+            <p className="font-SemiBold text-[18px]">Unlock your potential with our cutting-edge programs</p>
             <p className="w-full max-w-[21rem] tablet:max-w-[28rem] laptop:max-w-[32rem] desktop:max-w-[36rem]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
               consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -116,10 +116,10 @@ export default function Home() {
                   width={206}
                   height={12}
                 />
-                <p className="flex text-center font-bold">Train the next generation in <br></br>software developemnt</p>
+                <p className="flex text-center font-semibold">Train the next generation in <br></br>software developemnt</p>
                 <p className="flex text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLor</p>
-                <div className="flex items-center gap-[1rem]">
-                  <a href="https://www.shecancodeschool.org/"><p>Visit website</p>
+                <div className="flex flex-col items-center gap-[1rem]">
+                  <a  className="flex items-center gap-[1rem]" href="https://www.shecancodeschool.org/"><p>Visit website</p>
                   <Image
                     src="/link.png"
                     alt="LINK"
@@ -141,8 +141,8 @@ export default function Home() {
 
                   <p className="flex text-center font-bold">Train the next generation in <br></br>software developemnt</p>
                   <p className="flex text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLor</p>
-                  <div className="flex items-center gap-[1rem]">
-                    <a href=""><p>Visit website</p>
+                  <div>
+                    <a  className="flex items-center gap-[1rem]" href=""><p>Visit website</p>
                     <Image
                       src="/link.png"
                       alt="LINK"
@@ -240,7 +240,7 @@ export default function Home() {
             </div>
             <div className="w-[120px] tablet:w-[154px]">
               <Image
-                src="/irembo.png"
+                src="/irembo.svg"
                 alt="Programs"
                 width={163.3}
                 height={32.17}

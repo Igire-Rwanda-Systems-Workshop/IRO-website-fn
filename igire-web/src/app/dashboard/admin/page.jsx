@@ -21,7 +21,7 @@ const StatusCard = ({ title, percentage, imageSrc, color }) => (
     <Card className="w-[calc(33.333%-0.75rem)]">
         <CardContent className="flex flex-col items-center justify-center p-6">
             <div className='flex items-start gap-3'>
-            <img src={imageSrc} alt={title} className="w-8 h-8 mb-2" />
+                <img src={imageSrc} alt={title} className="w-8 h-8 mb-2" />
                 <p className="text-[18px] text-muted-foreground">{title}</p>
             </div>
             <CardTitle className={`text-[24px] font-bold ${color}`}>{percentage}</CardTitle>
@@ -34,24 +34,24 @@ export default function Dashboard() {
     return <>
         <div className="p-8">
             <div className="flex justify-between gap-4 mb-8">
-            <StatusCard 
-          title="Approved" 
-          percentage="91.7%" 
-          imageSrc="/approvedIcon.png" 
-          color="text-green-500" 
-        />
-        <StatusCard 
-          title="Pending" 
-          percentage="91.7%" 
-          imageSrc="/denied.png" 
-          color="text-yellow-500" 
-        />
-        <StatusCard 
-          title="Denied" 
-          percentage="91.7%" 
-          imageSrc="/deniedIcon.png" 
-          color="text-red-500" 
-        />
+                <StatusCard
+                    title="Approved"
+                    percentage="91.7%"
+                    imageSrc="/approvedIcon.png"
+                    color="text-green-500"
+                />
+                <StatusCard
+                    title="Pending"
+                    percentage="91.7%"
+                    imageSrc="/denied.png"
+                    color="text-yellow-500"
+                />
+                <StatusCard
+                    title="Denied"
+                    percentage="91.7%"
+                    imageSrc="/deniedIcon.png"
+                    color="text-red-500"
+                />
             </div>
 
             <div className='flex gap-5 justify-center'>
@@ -74,12 +74,14 @@ export default function Dashboard() {
                 </Card>
 
                 <Card>
-                    <CardContent className="flex items-start p-6">
-                        <Database className="w-8 h-8 mr-4 text-green-500" />
-                        <div>
-                            <CardTitle className="text-xl mb-2">Total Orders</CardTitle>
-                            <p className="text-sm text-muted-foreground mb-1">Items: <span className="text-orange-500 font-bold">37</span></p>
-                            <p className="text-sm text-muted-foreground">Amount: <span className="text-orange-500 font-bold">200.00 RWF</span></p>
+                    <CardContent className="flex flex-col items-start p-6">
+                        <div className='flex mb-8'>
+                            <Database className="w-10 h-16 mr-4 text-green-500" />
+                            <CardTitle className="text-xl font-medium">Total Orders</CardTitle>
+                        </div>
+                        <div >
+                            <p className="text-sm text-muted-foreground mb-1 font-bold">Items: <span className="font-normal text-orange-500 font-bold">37</span></p>
+                            <p className="text-sm text-muted-foreground font-bold">Amount: <span className="font-normal text-orange-500 font-bold">200.00 RWF</span></p>
                         </div>
                     </CardContent>
                 </Card>
