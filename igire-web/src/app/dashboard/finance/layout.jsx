@@ -1,3 +1,4 @@
+
 import DashboardSideBar from "./(components)/DashboardSideBar";
 import DashboardNavBar from "./(components)/DashboardNavBar";
 
@@ -14,5 +15,5 @@ export default function DashboardLayout({ children }) {
             </div>
         </>
     );
-};
+}; 
 

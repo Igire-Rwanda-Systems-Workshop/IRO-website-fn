@@ -8,6 +8,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import AddUserModal from './addUserMoal';
 import EditUserModal from './editUserModal';
 import DeleteUserModal from './deleteUserModal';
+import { Button } from '@/components/ui/button';
 
 const UserCard = ({ name, email, jobTitle, onEdit, onDelete }) => {
   return (
@@ -20,7 +21,7 @@ const UserCard = ({ name, email, jobTitle, onEdit, onDelete }) => {
         <div className="flex flex-col items-center pt-6 gap-4">
           <img src="/userAvatar.png" alt="User Avatar" className="w-12 h-12 rounded-full mb-2" />
           <div className="text-center">
-            <CardTitle className="text-lg font-semibold">{name}</CardTitle>
+            <CardTitle className="text-lg font-normal">{name}</CardTitle>
             <p className="text-sm text-muted-foreground">{email}</p>
             <p className="text-sm text-muted-foreground">{jobTitle}</p>
           </div>
@@ -40,40 +41,42 @@ const ManageUsers = () => {
       <div className='p-8'>
         <div>
           <div>
-            <p className='text-[18px] font-bold items-center flex justify-between'>
+            <p className='text-[18px] items-center flex justify-between'>
               Manage User
-              <span 
-                className='flex gap-3 items-center bg-[#EAEAEA] py-1 px-2 rounded-lg cursor-pointer'
+              <span
+                className='flex'
                 onClick={() => setIsAddModalOpen(true)}
               >
-                add user
-                <IoIosAddCircleOutline className='text-[#0FA958]' />
+                <Button className="flex gap-2 text-white" >
+                  add user
+                <IoIosAddCircleOutline />
+                </Button>
               </span>
             </p>
           </div>
         </div>
 
         <div className="flex gap-[2rem] w-full pt-[2.7rem]">
-          <UserCard 
-            name="Hirwa J. Eric" 
-            email="useremail@gmail.com" 
-            jobTitle="Operation Manager" 
-            onEdit={() => setIsEditModalOpen(true)} 
-            onDelete={() => setIsDeleteModalOpen(true)} 
+          <UserCard
+            name="Hirwa J. Eric"
+            email="useremail@gmail.com"
+            jobTitle="Operation Manager"
+            onEdit={() => setIsEditModalOpen(true)}
+            onDelete={() => setIsDeleteModalOpen(true)}
           />
-          <UserCard 
-            name="Hirwa J. Eric" 
-            email="useremail@gmail.com" 
-            jobTitle="Operation Manager" 
-            onEdit={() => setIsEditModalOpen(true)} 
-            onDelete={() => setIsDeleteModalOpen(true)} 
+          <UserCard
+            name="Hirwa J. Eric"
+            email="useremail@gmail.com"
+            jobTitle="Operation Manager"
+            onEdit={() => setIsEditModalOpen(true)}
+            onDelete={() => setIsDeleteModalOpen(true)}
           />
-          <UserCard 
-            name="Hirwa J. Eric" 
-            email="useremail@gmail.com" 
-            jobTitle="Operation Manager" 
-            onEdit={() => setIsEditModalOpen(true)} 
-            onDelete={() => setIsDeleteModalOpen(true)} 
+          <UserCard
+            name="Hirwa J. Eric"
+            email="useremail@gmail.com"
+            jobTitle="Operation Manager"
+            onEdit={() => setIsEditModalOpen(true)}
+            onDelete={() => setIsDeleteModalOpen(true)}
           />
         </div>
       </div>
