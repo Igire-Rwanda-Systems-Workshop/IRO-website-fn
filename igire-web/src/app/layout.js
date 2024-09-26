@@ -4,7 +4,9 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Image from 'next/image';
 import { useState } from 'react';
+
 import AuthLayout from './layouts/authLayout';
+
 import { usePathname } from 'next/navigation';
 import Footer from "./footer";
 import { MdDarkMode } from "react-icons/md";
@@ -26,8 +28,8 @@ export default function RootLayout({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (path) => (pathname === path ? 'text-orange-500' : 'text-black dark:text-white');
-  
+  const isActive = (path) => pathname === path ? 'text-orange-500' : 'text-black dark:text-white';
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -38,7 +40,8 @@ export default function RootLayout({ children }) {
 
   // Check if the current path is one of the authentication pages
   const useAuthLayout = ['/login', '/resetpassword', '/otp'].includes(pathname);
-  const isDashboardPage = pathname.startsWith('/dashboard');
+
+  const isDashboardPage = pathname.startsWith('/dashboard' || '/dashboard/');
 
   return (
     <html lang="en" className={isDarkMode ? 'dark' : ''}>
@@ -47,57 +50,62 @@ export default function RootLayout({ children }) {
           <AuthLayout>{children}</AuthLayout>
         ) : (
           <>
-            {!isDashboardPage && (
-              <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-10 flex flex-col tablet:px-4 laptop:px-[126px] laptop:py-3 tablet:py-[14px]">
-                <div className="flex w-full h-73 justify-between items-center">
-                  <div className="flex items-center">
-                    <Image
-                      src="/logo.png"
-                      alt="LOGO"
-                      width={75}
-                      height={75}
-                      className="rounded-md"
-                    />
-                    <div>
-                      <p className="text-[35px] leading-6">IRO</p>
-                    </div>
-                  </div>
-
-                  <button
-                    className={`tablet:hidden p-2 text-gray-600 dark:text-gray-300 ${menuOpen ? 'hidden' : 'block'}`}
-                    onClick={toggleMenu}
-                    aria-expanded={menuOpen}
-                    aria-controls="main-menu"
-                    aria-label="Toggle menu"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                  </button>
-
-                  <nav
-                    id="main-menu"
-                    className={`flex flex-col tablet:flex-row laptop:gap-[75px] tablet:gap-10 text-[16px] tablet:text-[20px] ${menuOpen ? 'flex-1 block' : 'hidden'} tablet:flex tablet:flex-row`}
-                  >
-                    <a href="/" className={isActive('/')}>Home</a>
-                    <a href="/about" className={isActive('/about')}>About</a>
-                    <a href="/programs" className={isActive('/programs')}>Programs</a>
-                    <a href="/contact" className={isActive('/contact')}>Contact</a>
-                    <button
-                      className="ml-4 p-2 rounded-full border dark:border-gray-600"
-                      onClick={toggleDarkMode}
-                      aria-label="Toggle Dark Mode"
-                    >
-                      {isDarkMode ? <MdDarkMode /> : <MdOutlineDarkMode />}
-                    </button>
-                  </nav>
+                    {!isDashboardPage && (
+          <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-10 flex flex-col tablet:px-4 laptop:px-[126px] laptop:py-3 tablet:py-[14px]">
+            <div className="flex w-full h-73 justify-between items-center">
+              <div className="flex items-center">
+                <Image
+                  src="/logo.png"
+                  alt="LOGO"
+                  width={75}
+                  height={75}
+                  className="rounded-md"
+                />
+                <div>
+                  <p className="text-[35px] leading-6">IRO</p>
                 </div>
-              </header>
-            )}
-            <main>{children}</main>
-            {!isDashboardPage && <Footer />}
+              </div>
+
+              <button 
+                className={`tablet:hidden p-2 text-gray-600 dark:text-gray-300 ${menuOpen ? 'hidden' : 'block'}`}
+                onClick={toggleMenu}
+                aria-expanded={menuOpen}
+                aria-controls="main-menu"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
+
+              <nav 
+                id="main-menu"
+                className={`flex flex-col tablet:flex-row laptop:gap-[75px] tablet:gap-10 text-[16px] tablet:text-[20px] ${menuOpen ? 'flex-1 block' : 'hidden'} tablet:flex tablet:flex-row`}
+              >
+                <a href="/" className={isActive('/')}>Home</a>
+                <a href="/about" className={isActive('/about')}>About</a>
+                <a href="/program" className={isActive('/program')}>Programs</a>
+                <a href="/contact" className={isActive('/contact')}>Contact</a>
+                <button 
+                className="ml-4 p-2 rounded-full border dark:border-gray-600"
+                onClick={toggleDarkMode}
+                aria-label="Toggle Dark Mode"
+              >
+                {isDarkMode ? (
+                  <MdDarkMode/>
+                ) : (
+                  <MdOutlineDarkMode/>
+                )}
+              </button>
+              </nav>
+            </div>
+          </header>
+        )}
+        {children}
+        {!isDashboardPage && <Footer />}
           </>
         )}
+
       </body>
     </html>
   );
