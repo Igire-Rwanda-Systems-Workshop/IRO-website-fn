@@ -1,23 +1,26 @@
 'use client';
 
-import localFont from "next/font/local";
-import "./globals.css";
+import localFont from 'next/font/local';
+import './globals.css';
 import Image from 'next/image';
 import { useState } from 'react';
+
+import AuthLayout from './layouts/authLayout';
+
 import { usePathname } from 'next/navigation';
 import Footer from "./footer";
 import { MdDarkMode } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
 });
 
 export default function RootLayout({ children }) {
@@ -35,12 +38,19 @@ export default function RootLayout({ children }) {
     setIsDarkMode(!isDarkMode);
   };
 
+  // Check if the current path is one of the authentication pages
+  const useAuthLayout = ['/login', '/resetpassword', '/otp'].includes(pathname);
+
   const isDashboardPage = pathname.startsWith('/dashboard' || '/dashboard/');
 
   return (
     <html lang="en" className={isDarkMode ? 'dark' : ''}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-black dark:text-white`}>
-        {!isDashboardPage && (
+        {useAuthLayout ? (
+          <AuthLayout>{children}</AuthLayout>
+        ) : (
+          <>
+                    {!isDashboardPage && (
           <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-lg z-10 flex flex-col tablet:px-4 laptop:px-[126px] laptop:py-3 tablet:py-[14px]">
             <div className="flex w-full h-73 justify-between items-center">
               <div className="flex items-center gap-2">
@@ -96,6 +106,9 @@ export default function RootLayout({ children }) {
         )}
         {children}
         {!isDashboardPage && <Footer />}
+          </>
+        )}
+
       </body>
     </html>
   );
