@@ -29,7 +29,7 @@ export default function DashboardNavBar({ children }) {
                 return 'Approved request';
             case '/dashboard/finance/receipt':
                 return 'Receipt';
-            case '/dashboard/stock':
+            case '/dashboard/finance/receipt':
                 return 'Stock';
             default:
                 return 'Dashboard';

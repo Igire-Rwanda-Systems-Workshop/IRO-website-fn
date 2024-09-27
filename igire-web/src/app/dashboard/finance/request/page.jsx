@@ -20,9 +20,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-// import ApprovePurchaseModal from "./approveModal";
-// import DenyPurchaseModal from "./denialModal";
-// import InquireModal from "./inquireModal";
+import InitiatePaymentModal from "./initiatePaymentModal";
 
 const firstTableData = [
     {
@@ -35,7 +33,7 @@ const firstTableData = [
     },
     {
         date: "21 Oct, 2024",
-        product: "chair",
+        product: "Chair",
         quantity: 5,
         amountPerUnit: 25000,
         totalAmount: 125000,
@@ -43,7 +41,7 @@ const firstTableData = [
     },
     {
         date: "23 Oct, 2024",
-        product: "mark board",
+        product: "Mark board",
         quantity: 1,
         amountPerUnit: 25000,
         totalAmount: 125000,
@@ -74,14 +72,6 @@ const secondTableData = [
         quantity: 2,
         amountPerUnit: 5000,
         totalAmount: 10000,
-        status: "completed",
-    },
-    {
-        date: "24 Oct, 2024",
-        product: "Kettle",
-        quantity: 2,
-        amountPerUnit: 70000,
-        totalAmount: 140000,
         status: "completed",
     },
     {
@@ -141,33 +131,22 @@ const columns = [
             return <div className={statusClass}>{status}</div>;
         },
     },
-    // {
-    //     accessorKey: "invoice",
-    //     header: () => "Invoice",
-    // },
 ];
 
 export default function Request() {
     const [sorting, setSorting] = React.useState([]);
     const [globalFilter, setGlobalFilter] = React.useState("");
-    const [isAddModalOpen, setIsAddModalOpen] = React.useState(false);
-    const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false);
-    const [isDenialModalOpen, setIsDenialModalOpen] = React.useState(false);
-    const [isInquireModalOpen, setIsInquireModalOpen] = React.useState(false);
+    const [isPaymentModalOpen, setPaymentModalOpen] = React.useState(false);
+    const [selectedProduct, setSelectedProduct] = React.useState(null);
 
-    const handleApprove = () => {
-        console.log("Purchase approved!");
-        setIsApproveModalOpen(false);
+    const openPaymentModal = (product) => {
+        setSelectedProduct(product);
+        setPaymentModalOpen(true);
     };
 
-    const handleDeny = () => {
-        console.log("Purchase denied!");
-        setIsDenialModalOpen(false);
-    };
-
-    const handleInquire = () => {
-        // console.log("Purchase denied!");
-        setIsDenialInquireOpen(false);
+    const closePaymentModal = () => {
+        setPaymentModalOpen(false);
+        setSelectedProduct(null);
     };
 
     const firstTable = useReactTable({
@@ -200,8 +179,14 @@ export default function Request() {
 
     return (
         <div className="w-full p-6">
-            <div className="mb-4 flex justify-between">
+            <div className="mb-4 flex justify-between items-center">
                 <h1 className="text-md font-semibold">Purchased items</h1>
+                <Input
+                    placeholder="Search..."
+                    value={globalFilter ?? ""}
+                    onChange={(e) => setGlobalFilter(e.target.value)}
+                    className="max-w-xs"
+                />
             </div>
             <div className="rounded-md border">
                 <Table>
@@ -222,7 +207,11 @@ export default function Request() {
                     <TableBody>
                         {firstTable.getRowModel().rows?.length ? (
                             firstTable.getRowModel().rows.map((row) => (
-                                <TableRow key={row.id} onClick={() => setIsAddModalOpen(true)}>
+                                <TableRow
+                                    key={row.id}
+                                    className="cursor-pointer"
+                                    onClick={() => openPaymentModal(row.original)}
+                                >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
                                             {flexRender(
@@ -265,7 +254,10 @@ export default function Request() {
                     <TableBody>
                         {secondTable.getRowModel().rows?.length ? (
                             secondTable.getRowModel().rows.map((row) => (
-                                <TableRow key={row.id} onClick={() => setIsAddModalOpen(true)}>
+                                <TableRow
+                                    key={row.id}
+                                    className="cursor-pointer"
+                                >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
                                             {flexRender(
@@ -306,21 +298,11 @@ export default function Request() {
                 </Button>
             </div>
 
-            {/* <ApprovePurchaseModal
-                isOpen={isApproveModalOpen}
-                onClose={() => setIsApproveModalOpen(false)}
-                onApprove={handleApprove}
+            <InitiatePaymentModal
+                isOpen={isPaymentModalOpen}
+                onClose={closePaymentModal}
+                selectedProduct={selectedProduct}
             />
-            <DenyPurchaseModal
-                isOpen={isDenialModalOpen} 
-                onClose={() => setIsDenialModalOpen(false)}
-                onDeny={handleDeny} 
-            />
-             <InquireModal
-                isOpen={isInquireModalOpen} 
-                onClose={() => setIsInquireModalOpen(false)}
-                onDeny={handleInquire} 
-            /> */}
         </div>
     );
 }

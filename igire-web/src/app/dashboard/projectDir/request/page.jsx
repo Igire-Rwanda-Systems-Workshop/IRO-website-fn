@@ -205,7 +205,7 @@ export default function Request() {
           Next
         </Button>
       </div>
-      <PurchaseRequestModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} /> {/* Modal instance */}
+      <PurchaseRequestModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
     </div>
   );
 }
