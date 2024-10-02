@@ -22,88 +22,84 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import InitiatePaymentModal from "./initiatePaymentModal";
+import ApprovePurchaseModal from "./approveModal";
+import DenyPurchaseModal from "./denialModal";
+import InquireModal from "./inquireModal";
 
 const firstTableData = [
     {
-        date: "20 Oct, 2024",
-        product: "Table",
-        quantity: 2,
-        amountPerUnit: 25000,
-        totalAmount: 125000,
-        status: "Approved",
-    },
-    {
-        date: "21 Oct, 2024",
+        id: "4123637",
         product: "Chair",
-        quantity: 5,
-        amountPerUnit: 25000,
-        totalAmount: 125000,
-        status: "Approved",
-    },
-    {
-        date: "23 Oct, 2024",
-        product: "Mark board",
-        quantity: 1,
-        amountPerUnit: 25000,
-        totalAmount: 125000,
-        status: "Approved",
+        dimension: "44.8 x 27",
+        location: "office 1",
+        brand: "Elabest",
+        status: "new",
     },
 ];
 
 const secondTableData = [
     {
-        date: "24 Oct, 2024",
-        product: "Table",
-        quantity: 5,
-        amountPerUnit: 10000,
-        totalAmount: 50000,
-        status: "Payment loading",
+        id: "25024",
+        product: "Chair",
+        dimension: "3 x 23",
+        location: "office 1",
+        brand: "silver wood",
+        status: "damaged",
     },
     {
-        date: "24 Oct, 2024",
-        product: "Mark board",
-        quantity: 2,
-        amountPerUnit: 5000,
-        totalAmount: 10000,
-        status: "Payment loading",
+        id: "26024",
+        product: "Chair",
+        dimension: "2 x 23",
+        location: "office 2",
+        brand: "silver wood",
+        status: "Refurbished",
+    },
+    {
+        id: "27024",
+        product: "Chair",
+        dimension: "1 x 23",
+        location: "office 3",
+        brand: "silver wood",
+        status: "new",
+    },
+    {
+        id: "28024",
+        product: "Chair",
+        dimension: "1 x 23",
+        location: "class 1",
+        brand: "silver wood",
+        status: "damaged",
+    },
+    {
+        id: "29024",
+        product: "Chair",
+        dimension: "2 x 23",
+        location: "class 2",
+        brand: "silver wood",
+        status: "new",
     },
 ];
 
 const columns = [
     {
-        accessorKey: "date",
-        header: () => "Date",
+        accessorKey: "id",
+        header: () => "Id",
     },
     {
         accessorKey: "product",
         header: () => "Product",
     },
     {
-        accessorKey: "quantity",
-        header: () => "Quantity",
+        accessorKey: "dimension",
+        header: () => "Dimension",
     },
     {
-        accessorKey: "amountPerUnit",
-        header: () => "Amount per Unit",
-        cell: ({ row }) => {
-            const formattedAmount = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "RWF",
-            }).format(row.getValue("amountPerUnit"));
-            return <div>{formattedAmount}</div>;
-        },
+        accessorKey: "location",
+        header: () => "Location",
     },
     {
-        accessorKey: "totalAmount",
-        header: () => "Total Amount",
-        cell: ({ row }) => {
-            const formattedTotal = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "RWF",
-            }).format(row.getValue("totalAmount"));
-            return <div>{formattedTotal}</div>;
-        },
+        accessorKey: "brand",
+        header: () => "Brand",
     },
     {
         accessorKey: "status",
@@ -112,7 +108,7 @@ const columns = [
             const status = row.getValue("status");
             let statusClass = "text-yellow-500";
             if (status === "Approved") statusClass = "text-green-500";
-            if (status === "completed") statusClass = "text-blue-500";
+            if (status === "Denied") statusClass = "text-red-500";
 
             return <div className={statusClass}>{status}</div>;
         },
@@ -121,19 +117,24 @@ const columns = [
 
 export default function Request() {
     const [sorting, setSorting] = React.useState([]);
-    const [globalFilterFirst, setGlobalFilterFirst] = React.useState("");
-    const [globalFilterSecond, setGlobalFilterSecond] = React.useState("");
-    const [isPaymentModalOpen, setPaymentModalOpen] = React.useState(false);
-    const [selectedProduct, setSelectedProduct] = React.useState(null);
+    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false);
+    const [isDenialModalOpen, setIsDenialModalOpen] = React.useState(false);
+    const [isInquireModalOpen, setIsInquireModalOpen] = React.useState(false);
 
-    const openPaymentModal = (product) => {
-        setSelectedProduct(product);
-        setPaymentModalOpen(true);
+    const handleApprove = () => {
+        console.log("Purchase approved!");
+        setIsApproveModalOpen(false);
     };
 
-    const closePaymentModal = () => {
-        setPaymentModalOpen(false);
-        setSelectedProduct(null);
+    const handleDeny = () => {
+        console.log("Purchase denied!");
+        setIsDenialModalOpen(false);
+    };
+
+    const handleInquire = () => {
+        setIsInquireModalOpen(false);
     };
 
     const firstTable = useReactTable({
@@ -146,7 +147,7 @@ export default function Request() {
         onSortingChange: setSorting,
         state: {
             sorting,
-            globalFilter: globalFilterFirst,
+            globalFilter,
         },
     });
 
@@ -160,20 +161,17 @@ export default function Request() {
         onSortingChange: setSorting,
         state: {
             sorting,
-            globalFilter: globalFilterSecond,
+            globalFilter,
         },
     });
 
     return (
         <div className="w-full p-6">
-            <div className="mb-4 flex justify-between items-center">
-                <h1 className="text-md font-semibold">Validated Order</h1>
-                <Input
-                    placeholder="Search..."
-                    value={globalFilterFirst ?? ""}
-                    onChange={(e) => setGlobalFilterFirst(e.target.value)}
-                    className="max-w-xs"
-                />
+            <div className="mb-4 flex justify-between">
+                <h1 className="text-md font-semibold">Compare purchase order with stock</h1>
+                <Button className="text-white" onClick={() => setIsInquireModalOpen(true)}>
+                    Inquire
+                </Button>
             </div>
             <div className="rounded-md border">
                 <Table>
@@ -194,11 +192,7 @@ export default function Request() {
                     <TableBody>
                         {firstTable.getRowModel().rows?.length ? (
                             firstTable.getRowModel().rows.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    className="cursor-pointer"
-                                    onClick={() => openPaymentModal(row.original)}
-                                >
+                                <TableRow key={row.id} onClick={() => setIsModalOpen(true)}>
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
                                             {flexRender(
@@ -219,33 +213,17 @@ export default function Request() {
                     </TableBody>
                 </Table>
             </div>
-            <div className="flex items-center justify-end space-x-2 py-2">
-                <Button
-                    onClick={() => firstTable.previousPage()}
-                    disabled={!firstTable.getCanPreviousPage()}
-                >
-                    <GrFormPrevious />
+            <div className="flex justify-end gap-3 mt-4">
+                <Button className="text-white" onClick={() => setIsApproveModalOpen(true)}>
+                    Approve
                 </Button>
-                <span>
-                    Page {firstTable.getState().pagination.pageIndex + 1} of{" "}
-                    {firstTable.getPageCount()}
-                </span>
-                <Button
-                    onClick={() => firstTable.nextPage()}
-                    disabled={!firstTable.getCanNextPage()}
-                >
-                    <GrFormNext />
+                <Button className="text-white bg-[#F70E1E] hover:bg-red-800" onClick={() => setIsDenialModalOpen(true)}>
+                    Deny
                 </Button>
             </div>
 
-            <div className="mt-6 mb-4 flex justify-between items-center">
-                <h2 className="font-semibold">Payment Confirmation Status</h2>
-                <Input
-                    placeholder="Search..."
-                    value={globalFilterSecond ?? ""}
-                    onChange={(e) => setGlobalFilterSecond(e.target.value)}
-                    className="max-w-xs"
-                />
+            <div className="my-4">
+                <h1 className="text-md font-semibold">Compare purchase order with stock</h1>
             </div>
             <div className="rounded-md border">
                 <Table>
@@ -266,11 +244,7 @@ export default function Request() {
                     <TableBody>
                         {secondTable.getRowModel().rows?.length ? (
                             secondTable.getRowModel().rows.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    className="cursor-pointer"
-                                    onClick={() => openPaymentModal(row.original)}
-                                >
+                                <TableRow key={row.id} onClick={() => setIsModalOpen(true)}>
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
                                             {flexRender(
@@ -284,7 +258,7 @@ export default function Request() {
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                                    No payment is loading.
+                                    No results.
                                 </TableCell>
                             </TableRow>
                         )}
@@ -300,8 +274,7 @@ export default function Request() {
                     <GrFormPrevious />
                 </Button>
                 <span>
-                    Page {secondTable.getState().pagination.pageIndex + 1} of{" "}
-                    {secondTable.getPageCount()}
+                    Page {secondTable.getState().pagination.pageIndex + 1} of {secondTable.getPageCount()}
                 </span>
                 <Button
                     onClick={() => secondTable.nextPage()}
@@ -311,13 +284,21 @@ export default function Request() {
                 </Button>
             </div>
 
-            {isPaymentModalOpen && (
-                <InitiatePaymentModal
-                    isOpen={isPaymentModalOpen}
-                    onClose={closePaymentModal}
-                    product={selectedProduct}
-                />
-            )}
+            <ApprovePurchaseModal
+                isOpen={isApproveModalOpen}
+                onClose={() => setIsApproveModalOpen(false)}
+                onApprove={handleApprove}
+            />
+            <DenyPurchaseModal
+                isOpen={isDenialModalOpen}
+                onClose={() => setIsDenialModalOpen(false)}
+                onDeny={handleDeny}
+            />
+            <InquireModal
+                isOpen={isInquireModalOpen}
+                onClose={() => setIsInquireModalOpen(false)}
+                onInquire={handleInquire}
+            />
         </div>
     );
 }

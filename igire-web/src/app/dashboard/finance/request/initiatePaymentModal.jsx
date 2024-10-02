@@ -52,8 +52,8 @@ const InitiatePaymentModal = ({
                         )}
                     </div>
                     <DialogFooter className="flex justify-start mt-6 space-x-2">
-                        <Button onClick={handleRelease} className="bg-[#0FA958] text-white px-4 py-2">Release</Button>
-                        <Button onClick={openPayoutModal} className="bg-red-500 text-white px-4 py-2">Pay Out</Button>
+                        <Button onClick={handleRelease} className="bg-[#0FA958] hover:bg-green-900 text-white px-4 py-2">Release</Button>
+                        <Button onClick={openPayoutModal} className="bg-red-500 hover:bg-red-800 text-white px-4 py-2">Pay Out</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

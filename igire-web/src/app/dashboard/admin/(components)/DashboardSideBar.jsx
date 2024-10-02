@@ -15,7 +15,7 @@ export default function DashboardSideBar() {
 
     return (
         <div className="desktop:block hidden h-full">
-            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] py-[2rem] 
+            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] pt-10 
                 text-white bg-[#0B3004] border-r">
                 <div className="flex h-[55px] items-center justify-between px-3 w-full">
                     <div className="flex items-center">
@@ -32,7 +32,7 @@ export default function DashboardSideBar() {
                     </div>
                 </div>
                 <div className="flex-1 overflow-auto py-2">
-                    <nav className="grid items-start pl-8 text-md gap-[9rem] font-semiBold">
+                    <nav className="grid items-start pl-8 text-md gap-[12rem]">
                         <div>
                             <Link
                                 href="/dashboard/admin"
@@ -58,7 +58,7 @@ export default function DashboardSideBar() {
                                 href="/dashboard/admin/transactions"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/admin/transactions' && "text-[#F79E1B]"
+                                    pathname.startsWith('/dashboard/admin/transactions') && "text-[#F79E1B]"
                                 )}
                             >
                                 <LiaTagsSolid className="h-3 w-3" />
