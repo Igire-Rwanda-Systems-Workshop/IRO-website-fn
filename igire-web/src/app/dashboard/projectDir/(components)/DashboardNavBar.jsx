@@ -26,13 +26,13 @@ export default function DashboardNavBar({ children }) {
     const getPageTitle = () => {
         switch (pathname) {
             case '/dashboard/projectDir/request':
-                return 'Purchase request';
+                return 'Transactions';
             case '/dashboard/projectDir/request/comparewithstock':
                 return 'Compare';
             case '/dashboard/projectDir/stock':
                 return 'Stock';
             default:
-                return 'Dashboard';
+                return 'Project Director Dashboard';
         }
     };
 
@@ -62,7 +62,7 @@ export default function DashboardNavBar({ children }) {
                                 <Link href="/dashboard/projectDir/request">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LuShoppingCart className="h-3 w-3" />
-                                        Request
+                                        Transactions
                                     </Button>
                                 </Link>
                             </DialogClose>
@@ -98,7 +98,7 @@ export default function DashboardNavBar({ children }) {
                         <Button variant="ghost">Home</Button>
                     </Link>
                     <Link href="/dashboard/projectDir/request">
-                        <Button variant="ghost">Request</Button>
+                        <Button variant="ghost">Transactions</Button>
                     </Link>
                     <Link href="/dashboard/projectDir/stock">
                         <Button variant="ghost">Stock</Button>

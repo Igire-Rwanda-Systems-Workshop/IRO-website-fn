@@ -158,7 +158,7 @@ export default function Home() {
         {/* End of programs section */}
 
         {/* Latest News Section */}
-        <div className="flex flex-col gap-8 px-4 tablet:px-6 laptop:px-[126px] pb-10">
+        <div className="flex flex-col items-center justify-center gap-8 px-4 tablet:px-6 laptop:px-[126px] pb-10">
           <div>
             <h1 className="text-[24px] font-bold text-center laptop:text-left">Latest News</h1>
           </div>

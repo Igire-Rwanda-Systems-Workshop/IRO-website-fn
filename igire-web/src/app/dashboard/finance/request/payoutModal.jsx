@@ -41,8 +41,8 @@ const PayoutModal = ({ isOpen, onClose, selectedProduct }) => {
                     )}
                 </div>
                 <DialogFooter className="flex justify-start mt-6 space-x-2">
-                    <Button onClick={onClose} className=" text-white px-4 py-2">Confirm</Button>
-                    <Button onClick={onClose} className="bg-red-500 text-white px-4 py-2">Cancel</Button>
+                    <Button onClick={onClose} className="bg-[#0FA958] hover:bg-green-900 text-white px-4 py-2">Confirm</Button>
+                    <Button onClick={onClose} className="bg-red-500 hover:bg-red-800 text-white px-4 py-2">Cancel</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

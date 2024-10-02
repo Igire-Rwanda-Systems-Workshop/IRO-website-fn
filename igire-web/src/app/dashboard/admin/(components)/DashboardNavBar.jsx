@@ -22,18 +22,20 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation';
 
 export default function DashboardNavBar({ children }) {
-    
+
     const pathname = usePathname();
     const getPageTitle = () => {
         switch (pathname) {
             case '/dashboard/admin/users':
                 return 'Users';
-            case '/dashboard/admin/transaction':
+            case '/dashboard/admin/transactions':
                 return 'Transactions';
+            case '/dashboard/admin/transactions/compareWithStock':
+                return 'Compare';
             case '/dashboard/admin/stock':
                 return 'Stock';
             default:
-                return 'Dashboard';
+                return 'CEO Dashboard';
         }
     };
 
@@ -68,7 +70,7 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/transaction">
+                                <Link href="/dashboard/transactions">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LiaTagsSolid className="h-3 w-3" />
                                         Transactions
