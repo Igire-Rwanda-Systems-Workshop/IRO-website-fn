@@ -86,34 +86,34 @@ export default function Stock() {
       {
         accessorKey: "id",
         header: () => <div className="text-left">ID</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.id}</div>,
+        cell: ({ row }) => <div className="">{row.original.id}</div>,
       },
       {
         accessorKey: "name",
         header: () => <div className="text-left">Name</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.name}</div>,
+        cell: ({ row }) => <div className="">{row.original.name}</div>,
       },
       {
         accessorKey: "location",
         header: () => <div className="text-left">Location</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.location}</div>,
+        cell: ({ row }) => <div className="">{row.original.location}</div>,
       },
       {
         accessorKey: "size",
         header: () => <div className="text-left">Size</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.size}</div>,
+        cell: ({ row }) => <div className="">{row.original.size}</div>,
       },
       {
         accessorKey: "entryDate",
         header: () => <div className="text-left">Entry Date</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.entryDate}</div>,
+        cell: ({ row }) => <div className="">{row.original.entryDate}</div>,
       },
       {
         accessorKey: "status",
         header: () => <div className="text-left">Status</div>,
         cell: ({ row }) => (
           <div
-            className={`py-1 ${
+            className={` ${
               row.original.status === "Denied"
                 ? "text-red-600"
                 : row.original.status === "Approved"
@@ -152,8 +152,12 @@ export default function Stock() {
   return (
     <div className="w-full px-6">
       {/* Search, filter, and action buttons */}
-      <div className="flex items-center justify-between mt-6">
-        <div className="flex items-center w-full max-w-lg">
+      <div className="flex items-center justify-between mt-4 mb-2">
+        <div>
+          <p className="py-6 text-md font-semibold">Purchase orders</p>
+        </div>
+
+        <div className="flex items-center  max-w-lg">
           <div className="relative w-full">
             <HiOutlineSearch
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -164,7 +168,7 @@ export default function Stock() {
               placeholder="Search by name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border pl-10 pr-4 rounded-md py-2 w-full"
+              className="border pl-10 pr-20 rounded-md py-2 w-full"
             />
           </div>
         </div>
@@ -196,10 +200,7 @@ export default function Stock() {
         </div>
       </div>
 
-      {/* Table rendering */}
-      <div>
-        <p className="py-6 text-xl">Stock Overview</p>
-      </div>
+  
       <div className="rounded-md border">
         <Table>
           <TableHeader className="bg-[#EFF4FA]">
@@ -242,20 +243,24 @@ export default function Stock() {
 
       {/* Pagination */}
       <div className="flex items-center justify-end mt-4">
-        <Button
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-          variant="outline"
-        >
-          <BiChevronLeft />
-        </Button>
-        <Button
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-          variant="outline"
-        >
-          <BiChevronRight />
-        </Button>
+      <Button
+    onClick={() => table.previousPage()}
+    disabled={!table.getCanPreviousPage()}
+    className="px-1 py-1 flex items-center"
+  >
+    <BiChevronLeft size={20} className="" />
+  </Button>
+  <span className="mx-2">
+    Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+  </span>
+  
+  <Button
+    onClick={() => table.nextPage()}
+    disabled={!table.getCanNextPage()}
+    className="px-1 py-1 flex items-center"
+  >
+    <BiChevronRight size={20} className="" />
+  </Button>
       </div>
 
       {/* Edit and Delete Modals */}
@@ -272,7 +277,7 @@ export default function Stock() {
           order={selectedOrder}
           isOpen={isDeleteOpen}
           onClose={() => setDeleteOpen(false)}
-          onDelete={handleDelete}
+          onDelete={handleDelete}  
         />
       )}
     </div>

@@ -68,7 +68,7 @@ export default function DashboardSideBar() {
                                 href="/dashboard/operationMng/receipt"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 pt-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/operationMng/receiptk' && "text-[#F79E1B]"
+                                    pathname === '/dashboard/operationMng/receipt' && "text-[#F79E1B]"
                                 )}
                             >
                                 <IoReceiptOutline className="h-3 w-3" />

@@ -29,10 +29,8 @@ export default function DashboardNavBar({ children }) {
                 return 'Approved request';
             case '/dashboard/finance/receipt':
                 return 'Receipt';
-            case '/dashboard/stock':
-                return 'Stock';
             default:
-                return 'Dashboard';
+                return 'Finance Dashboard';
         }
     };
 
@@ -62,7 +60,7 @@ export default function DashboardNavBar({ children }) {
                                 <Link href="/dashboard/finance/request">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LuShoppingCart className="h-3 w-3" />
-                                        Request
+                                        Transactions
                                     </Button>
                                 </Link>
                             </DialogClose>
@@ -98,12 +96,12 @@ export default function DashboardNavBar({ children }) {
                         <Button variant="ghost">Home</Button>
                     </Link>
                     <Link href="/dashboard/finance/request">
-                        <Button variant="ghost">Request</Button>
+                        <Button variant="ghost">Transactions</Button>
                     </Link>
-                    <Link href="/dashboard/finance/stock">
+                    <Link href="/dashboard/finance/receipt">
                         <Button variant="ghost">Receipt</Button>
                     </Link>
-                    <Link href="/dashboard/projectDir/logout">
+                    <Link href="/dashboard/finance/logout">
                         <Button variant="ghost">Logout</Button>
                     </Link>
                 </nav>

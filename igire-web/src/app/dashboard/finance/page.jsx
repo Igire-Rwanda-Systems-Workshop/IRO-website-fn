@@ -45,10 +45,10 @@ export default function Dashboard() {
             setCurrentDate(formattedDate);
         };
 
-        updateDate(); // Initial update
-        const interval = setInterval(updateDate, 1000); // Update every second
+        updateDate();
+        const interval = setInterval(updateDate, 1000); 
 
-        return () => clearInterval(interval); // Cleanup on component unmount
+        return () => clearInterval(interval); 
     }, []);
 
     return (
@@ -107,7 +107,9 @@ export default function Dashboard() {
                             </p>
                         </div>
                     </CardContent>
-                </Card>
+                </Card> 
+                 
+                
             </div>
         </div>
     );

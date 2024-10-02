@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useMemo } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
+import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext } from "react-icons/gr";
 import {
   getCoreRowModel,
   getPaginationRowModel,
@@ -16,28 +18,29 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 const data = [
-  { product: "table", category: "class supplies", quantity: 15 },
-  { product: "chair", category: "office supplies", quantity: 20 },
-  { product: "plastic chair", category: "class supplies", quantity: 20 },
-  { product: "laronge", category: "class supplies", quantity: 5 },
-  { product: "m5gr84i9", category: "office supplies", quantity: 1 },
+  { product: "Table", category: "class supplies", quantity: 15 },
+  { product: "Chair", category: "office supplies", quantity: 20 },
+  { product: "Plastic chair", category: "class supplies", quantity: 20 },
+  { product: "Laronge", category: "class supplies", quantity: 5 },
+  { product: "M5gr84i9", category: "office supplies", quantity: 1 },
 ];
 const columns = [
   {
     accessorKey: "product",
     header: () => <div className="text-left">Product</div>,
-    cell: ({ row }) => <div className="py-2">{row.original.product}</div>,
+    cell: ({ row }) => <div className="py-1">{row.original.product}</div>,
   },
   {
     accessorKey: "category",
     header: () => <div className="text-left">Category</div>,
-    cell: ({ row }) => <div className="py-2">{row.original.category}</div>,
+    cell: ({ row }) => <div className="py-1">{row.original.category}</div>,
   },
   {
     accessorKey: "quantity",
     header: () => <div className="text-left">Quantity</div>,
-    cell: ({ row }) => <div className="py-2">{row.original.quantity}</div>,
+    cell: ({ row }) => <div className="py-1">{row.original.quantity}</div>,
   },
 ];
 export default function Stock() {
@@ -51,6 +54,7 @@ export default function Stock() {
         (categoryFilter === "" || item.category === categoryFilter)
     );
   }, [searchTerm, categoryFilter]);
+
   const table = useReactTable({
     data: filteredData,
     columns,
@@ -64,22 +68,24 @@ export default function Stock() {
   });
   return (
     <div className="w-full px-6">
-      <div className="flex items-center justify-between mt-6">
-        <div className="flex items-center w-full max-w-lg">
-          <div className="relative w-full">
-            <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            <input
-              type="text"
+      <div className="flex  flex-col md:flex-row lg:items-center md:items-start justify-between gap-4 mb-4 mt-4">
+        <div>
+          <p className="font-semibold">Stock overview</p>
+        </div>
+        <div className="flex items-center max-w-sm">
+          <div className="relative w-80">
+            <Input
               placeholder="Search by product..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border bg-gray-100 pl-10 pr-4 rounded-md py-2 w-full"
+              className="pl-10"
             />
+            <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2" size={15} />
           </div>
         </div>
         <div>
           <select
-            className="border border-3 border-black px-4 py-2 rounded-md"
+            className="border border-3 px-3 py-2 text-sm rounded-md"
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
           >
@@ -89,9 +95,7 @@ export default function Stock() {
           </select>
         </div>
       </div>
-      <div>
-        <p className="py-6 text-xl">Stock overview</p>
-      </div>
+
       <div className="rounded-md border">
         <Table>
           <TableHeader className="bg-[#EFF4FA]">
@@ -128,12 +132,12 @@ export default function Stock() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-start mt-4">
+      <div className="flex items-center justify-end space-x-2 mt-4">
         <Button
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          Previous
+          <GrFormPrevious />
         </Button>
         <span>
           Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
@@ -142,7 +146,7 @@ export default function Stock() {
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next
+          <GrFormNext />
         </Button>
       </div>
     </div>

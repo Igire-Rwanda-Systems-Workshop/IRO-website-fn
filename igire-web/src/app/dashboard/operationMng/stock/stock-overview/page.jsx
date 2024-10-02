@@ -112,43 +112,43 @@ export default function Stock() {
       {
         accessorKey: "product",
         header: () => <div className="text-left">Product</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.product}</div>,
+        cell: ({ row }) => <div className="">{row.original.product}</div>,
       },
       {
         accessorKey: "brand",
         header: () => <div className="text-left">Brand</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.brand}</div>,
+        cell: ({ row }) => <div className="">{row.original.brand}</div>,
       },
       {
         accessorKey: "location",
         header: () => <div className="text-left">Location</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.location.join(", ")}</div>,
+        cell: ({ row }) => <div className="">{row.original.location.join(", ")}</div>,
       },
       {
         accessorKey: "size",
         header: () => <div className="text-left">Size</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.size}</div>,
+        cell: ({ row }) => <div className="">{row.original.size}</div>,
       },
       {
         accessorKey: "entryDate",
         header: () => <div className="text-left">Entry Date</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.entryDate}</div>,
+        cell: ({ row }) => <div className="">{row.original.entryDate}</div>,
       },
       {
         accessorKey: "additionalSpecific",
         header: () => <div className="text-left">Additional specification</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.additionalSpecific}</div>,
+        cell: ({ row }) => <div className="">{row.original.additionalSpecific}</div>,
       },
       {
         accessorKey: "image",
         header: () => <div className="text-left">Image</div>,
-        cell: ({ row }) => <div className="py-1">{row.original.brand}</div>,
+        cell: ({ row }) => <div className="">{row.original.brand}</div>,
       },
       {
         id: "actions",
         header: () => <div className="text-left">Actions</div>,
         cell: ({ row }) => (
-          <div className="py-1">
+          <div className="">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="ml-auto">
@@ -190,8 +190,11 @@ export default function Stock() {
   return (
     <div className="w-full px-6">
       {/* Search and Filters */}
-      <div className="flex items-center justify-between mt-6">
-        <div className="relative w-full max-w-lg">
+      <div className="flex items-center justify-between mt-4 mb-3">
+        <div>
+          <p className="py-4 text-md font-semibold">Stock Overview</p>
+        </div>
+        <div className="relative  max-w-lg">
           <HiOutlineSearch
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
             size={20}
@@ -201,7 +204,7 @@ export default function Stock() {
             placeholder="Search by product..."
             value={productSearchTerm}
             onChange={(e) => setProductSearchTerm(e.target.value)}
-            className="border bg-gray-100 pl-10 pr-4 rounded-md py-2 w-full"
+            className="border pl-10 pr-20 rounded-md py-2 w-full"
           />
         </div>
 
@@ -232,10 +235,6 @@ export default function Stock() {
         </div>
       </div>
 
-      {/* Table */}
-      <div>
-        <p className="py-6 text-xl">Stock Overview</p>
-      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader className="bg-[#EFF4FA]">

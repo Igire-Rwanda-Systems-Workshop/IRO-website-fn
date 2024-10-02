@@ -30,17 +30,17 @@ const columns = [
   {
     accessorKey: "product",
     header: () => <div className="text-left">Product</div>,
-    cell: ({ row }) => <div className="py-1">{row.original.product}</div>,
+    cell: ({ row }) => <div className="">{row.original.product}</div>,
   },
   {
     accessorKey: "category",
     header: () => <div className="text-left">Category</div>,
-    cell: ({ row }) => <div className="py-1">{row.original.category}</div>,
+    cell: ({ row }) => <div className="">{row.original.category}</div>,
   },
   {
     accessorKey: "quantity",
     header: () => <div className="text-left">Quantity</div>,
-    cell: ({ row }) => <div className="py-1">{row.original.quantity}</div>,
+    cell: ({ row }) => <div className="">{row.original.quantity}</div>,
   },
    
 ];
@@ -68,8 +68,11 @@ export default function CeoStock() {
   });
   return (
     <div className="w-full px-6">
-      <div className="flex items-center justify-between mt-6">
-        <div className="flex items-center w-full max-w-lg">
+      <div className="flex items-center justify-between mt-4 mb-3">
+      <div>
+        <p className="py-4 text-md font-semibold">Stock overview</p>
+      </div>
+        <div className="flex items-center max-w-lg">
           <div className="relative w-full">
             <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             <input
@@ -77,7 +80,7 @@ export default function CeoStock() {
               placeholder="Search product..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border pl-10 pr-4 rounded-md py-2 w-full"
+              className="border pl-10 pr-20 rounded-md py-2 w-full"
             />
           </div>
         </div>
@@ -105,9 +108,7 @@ export default function CeoStock() {
           </div>
         </div>
       </div>
-      <div>
-        <p className="py-4 text-lg">Stock overview</p>
-      </div>
+      
       <div className="rounded-md border">
         <Table>
           <TableHeader className="bg-[#EFF4FA]">
@@ -148,7 +149,7 @@ export default function CeoStock() {
   <Button
     onClick={() => table.previousPage()}
     disabled={!table.getCanPreviousPage()}
-    className="px-1 py-1 flex items-center"
+    className="px-1  flex items-center"
   >
     <BiChevronLeft size={20} className="" />
   </Button>

@@ -9,6 +9,8 @@ import AddUserModal from './addUserMoal';
 import EditUserModal from './editUserModal';
 import DeleteUserModal from './deleteUserModal';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { HiOutlineSearch } from "react-icons/hi";
 
 const UserCard = ({ name, email, jobTitle, onEdit, onDelete }) => {
   return (
@@ -43,13 +45,24 @@ const ManageUsers = () => {
           <div>
             <p className='text-[18px] items-center flex justify-between'>
               Manage User
+              <span>
+                <div className="relative w-80 ">
+                  <Input
+                    placeholder="Search user..."
+                    // value={deniedGlobalFilter}
+                    // onChange={(event) => setDeniedGlobalFilter(event.target.value)}
+                    className="pl-10"
+                  />
+                  <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2" />
+                </div>
+              </span>
               <span
                 className='flex'
                 onClick={() => setIsAddModalOpen(true)}
               >
                 <Button className="flex gap-2 text-white" >
                   add user
-                <IoIosAddCircleOutline />
+                  <IoIosAddCircleOutline />
                 </Button>
               </span>
             </p>

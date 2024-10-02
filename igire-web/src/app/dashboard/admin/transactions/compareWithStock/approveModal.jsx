@@ -3,10 +3,10 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Button } from "@/components/ui/button";
 import { Input } from '@/components/ui/input';
 
-const InquireModal = ({ isOpen, onClose, onInquire }) => {
+const ApprovePurchaseModal = ({ isOpen, onClose, onApprove }) => {
 
-    const handleInquire = () => {
-        // onInquire();
+    const handleApprove = () => {
+        onApprove();
         onClose();
     };
 
@@ -14,7 +14,7 @@ const InquireModal = ({ isOpen, onClose, onInquire }) => {
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="max-w-lg bg-[#F8F8F8] items-center border-none rounded-xl p-6">
                 <DialogHeader>
-                    <DialogTitle className="text-center text-xl font-bold">Inquire clarification</DialogTitle>
+                    <DialogTitle className="text-center text-xl font-bold">Approve Purchase</DialogTitle>
                 </DialogHeader>
                 <div className="flex flex-col gap-2 mt-4">
                     <p className="text-sm">ID: 4123637</p>
@@ -30,7 +30,7 @@ const InquireModal = ({ isOpen, onClose, onInquire }) => {
                     />
                 </div>
                 <DialogFooter className="flex justify-star mt-6">
-                    <Button onClick={handleInquire} className="bg-[#0FA958] text-white px-4 py-2">Comfirm</Button>
+                    <Button onClick={handleApprove} className="bg-[#0FA958] text-white px-4 py-2">Comfirm</Button>
                     <Button onClick={onClose} className="bg-red-500 text-white px-4 py-2 mr-2">Cancel</Button>
                 </DialogFooter>
             </DialogContent>
@@ -38,4 +38,4 @@ const InquireModal = ({ isOpen, onClose, onInquire }) => {
     );
 };
 
-export default InquireModal;
+export default ApprovePurchaseModal;

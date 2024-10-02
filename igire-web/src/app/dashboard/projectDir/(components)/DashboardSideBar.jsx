@@ -15,8 +15,8 @@ export default function DashboardSideBar() {
 
     return (
         <div className="desktop:block hidden h-full">
-            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] py-[2rem] 
-                text-white bg-[#0B3004] border-r">
+            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] pt-10 
+                text-white bg-[#0B3004]">
                 <div className="flex h-[55px] items-center justify-between px-3 w-full">
                     <div className="flex items-center">
                         <Image
@@ -31,8 +31,8 @@ export default function DashboardSideBar() {
                         </p>
                     </div>
                 </div>
-                <div className="flex-1 overflow-auto py-2">
-                    <nav className="grid items-start pl-8 text-md gap-[9rem] font-semiBold">
+                <div className="flex-1 overflow-auto py-10">
+                    <nav className="grid items-start pl-8 text-md gap-[12rem]">
                         <div>
                             <Link
                                 href="/dashboard/projectDir"
@@ -48,11 +48,11 @@ export default function DashboardSideBar() {
                                 href="/dashboard/projectDir/request"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/projectDir/request' && "text-[#F79E1B]"
+                                    pathname.startsWith('/dashboard/projectDir/request') && "text-[#F79E1B]"
                                 )}
                             >
                                 <LuShoppingCart className="h-3 w-3" />
-                                Request
+                                Transactions
                             </Link>
                             <Link
                                 href="/dashboard/projectDir/stock"
