@@ -97,7 +97,12 @@ const columnsSimilarProducts = [
         <Datatable columns={columnsComparePurchaseOrder} data={dataComparePurchaseOrder} isPaginated={false}/>
       </div>
       <div className="flex justify-end space-x-4 ">
-        <button className="bg-green-500 text-white py-1 px-2 rounded-md">Approve</button>
+        <button className="bg-green-500 text-white py-1 px-2 rounded-md"
+        onClick={() => {
+          setIsConfirmDialogOpen(true); // Open confirmation dialog when denied
+        }}
+      >Approve</button>
+        
         <button
           className="bg-red-500 text-white py-1 px-2 rounded-md"
           onClick={() => setIsDenyDialogOpen(true)}  
@@ -224,7 +229,7 @@ const columnsSimilarProducts = [
               <button
                 className="bg-green-500 text-white py-2 px-4 rounded-md"
                 onClick={() => {
-                  setIsConfirmDialogOpen(true); // Open confirmation dialog when denied
+
                   setIsDenyDialogOpen(false);
                 }}
               >
