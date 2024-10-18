@@ -32,8 +32,8 @@ export default function DashboardSideBar() {
                     </div>
                 </div>
                 <div className="flex-1 overflow-auto py-10">
-                    <nav className="grid items-start pl-8 text-md gap-[12rem]">
-                        <div>
+                    <nav className="grid items-start pl-8 text-md gap-[9rem]">
+                        <div className='flex flex-col gap-3.5'>
                             <Link
                                 href="/dashboard/finance"
                                 className={clsx(

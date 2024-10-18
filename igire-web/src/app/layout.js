@@ -27,9 +27,14 @@ export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (path) =>
-    pathname === path ? "text-orange-500" : "text-black dark:text-white";
-
+  const isActive = (path) => {
+    if (path === '/') {
+      return pathname === path ? 'text-orange-500' : 'text-black dark:text-white';
+    } else {
+      return pathname.startsWith(path) ? 'text-orange-500' : 'text-black dark:text-white';
+    }
+  };
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -108,6 +113,9 @@ export default function RootLayout({ children }) {
                       </a>
                       <a href="/program" className={isActive("/program")}>
                         Programs
+                      </a>
+                      <a href="/career" className={isActive("/career")}>
+                        Careers
                       </a>
                       <a href="/contact" className={isActive("/contact")}>
                         Contact
