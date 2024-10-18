@@ -52,13 +52,13 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="p-8">
+        <div className="p-2 sm:p-8">
             <div className="flex justify-between mb-4">
                 <h1 className="text-md font-semibold">Equity</h1>
                 <p>{currentDate}</p>
             </div>
 
-            <div className="flex justify-between gap-6 mb-8">
+            <div className="flex flex-col sm:flex-row justify-between gap-6 mb-8">
                 <StatusCard
                     title="Current balance"
                     percentage="90,000,000 RWF"
@@ -73,7 +73,7 @@ export default function Dashboard() {
                 />
             </div>
 
-            <div className="flex gap-5 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center z-0">
                 <Card className="w-full">
                     <CardHeader>
                         <CardTitle>Financial Transactions</CardTitle>

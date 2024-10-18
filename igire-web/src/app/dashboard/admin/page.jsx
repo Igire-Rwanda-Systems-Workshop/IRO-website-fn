@@ -18,7 +18,7 @@ const data = [
 ];
 
 const StatusCard = ({ title, percentage, imageSrc, color }) => (
-    <Card className="w-[calc(33.333%-0.75rem)]">
+    <Card className="md:w-[calc(33.333%-0.75rem)]">
         <CardContent className="flex flex-col items-center justify-center p-6">
             <div className='flex items-start gap-3'>
                 <img src={imageSrc} alt={title} className="w-8 h-8 mb-2" />
@@ -32,8 +32,8 @@ const StatusCard = ({ title, percentage, imageSrc, color }) => (
 
 export default function Dashboard() {
     return <>
-        <div className="p-8">
-            <div className="flex justify-between gap-4 mb-8">
+        <div className="p-2 sm:p-8">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 mb-8">
                 <StatusCard
                     title="Approved"
                     percentage="91.7%"
@@ -54,14 +54,14 @@ export default function Dashboard() {
                 />
             </div>
 
-            <div className='flex gap-5 justify-center'>
-                <Card className="  w-full">
+            <div className='flex flex-col sm:flex-row gap-5 justify-center'>
+                <Card className="w-full">
                     <CardHeader>
                         <CardTitle>Financial Transactions</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
-                            <BarChart data={data}>
+                            <BarChart data={data} className='z-1'>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="year" />
                                 <YAxis />
@@ -75,7 +75,7 @@ export default function Dashboard() {
 
                 <Card>
                     <CardContent className="flex flex-col items-start p-6">
-                        <div className='flex mb-8'>
+                        <div className='flex mb-8 items-center'>
                             <Database className="w-10 h-16 mr-4 text-green-500" />
                             <CardTitle className="text-xl font-medium">Total Orders</CardTitle>
                         </div>

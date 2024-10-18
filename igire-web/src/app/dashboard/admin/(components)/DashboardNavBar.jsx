@@ -62,7 +62,7 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/users">
+                                <Link href="/dashboard/admin/users">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineUsers className="h-3 w-3" />
                                         Manage Users
@@ -70,7 +70,7 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/transactions">
+                                <Link href="/dashboard/admin/transactions">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LiaTagsSolid className="h-3 w-3" />
                                         Transactions
@@ -78,7 +78,7 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/stock">
+                                <Link href="/dashboard/admin/stock">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineArchiveBox className="h-3 w-3" />
                                         Stock
@@ -86,7 +86,7 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/logout">
+                                <Link href="/dashboard/admin/logout">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <RiLogoutCircleLine className="h-3 w-3" />
                                         Logout
@@ -97,27 +97,27 @@ export default function DashboardNavBar({ children }) {
                     </SheetContent>
                 </Sheet>
 
-                <div className="flex-1 px-6">
+                <div className="flex-1 px-6 z-99">
                     <Link href="/dashboard" className="flex items-center justify-between">
                         <span className="text-lg font-semibold">{getPageTitle()}</span>
                         <span><img src="/userAvatar.png" alt="User Avatar" className="w-8 h-8 rounded-full mb-2" /></span>
                     </Link>
                 </div>
 
-                <nav className="hidden items-center gap-4">
+                <nav className="hidden items-center gap-46">
                     <Link href="/dashboard">
                         <Button variant="ghost">Home</Button>
                     </Link>
-                    <Link href="/dashboard/users">
+                    <Link href="/dashboard/admin/users">
                         <Button variant="ghost">Manage Users</Button>
                     </Link>
-                    <Link href="/dashboard/transaction">
+                    <Link href="/dashboard/admin/transaction">
                         <Button variant="ghost">Transaction</Button>
                     </Link>
-                    <Link href="/dashboard/stock">
+                    <Link href="/dashboard/admin/stock">
                         <Button variant="ghost">Stock</Button>
                     </Link>
-                    <Link href="/dashboard/logout">
+                    <Link href="/dashboard/admin/logout">
                         <Button variant="ghost">Logout</Button>
                     </Link>
                 </nav>

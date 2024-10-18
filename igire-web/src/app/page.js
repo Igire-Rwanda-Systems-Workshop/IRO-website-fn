@@ -185,7 +185,7 @@ export default function Home() {
               )}
               <div className="w-full">
                 <TwitterTweetEmbed
-                  tweetId="1816954131447451679"
+                  tweetId="1843645914281640409"
                   onLoad={() => setLoadingTweet2(false)}
                 />
               </div>
