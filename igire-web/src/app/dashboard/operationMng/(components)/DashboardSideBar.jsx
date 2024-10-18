@@ -32,8 +32,8 @@ export default function DashboardSideBar() {
                     </div>
                 </div>
                 <div className="flex-1 overflow-auto py-2">
-                    <nav className="grid items-start pl-8 text-md gap-[11rem] font-semiBold">
-                        <div className=''>
+                    <nav className="grid items-start pl-8 text-md gap-[9rem] font-semiBold">
+                        <div className='flex flex-col gap-3.5'>
                             <Link
                                 href="/dashboard/operationMng"
                                 className={clsx(
@@ -47,8 +47,8 @@ export default function DashboardSideBar() {
                             <Link
                                 href="/dashboard/operationMng/purchaseOrder"
                                 className={clsx(
-                                    "flex items-center gap-2 rounded-lg px-3 py-4 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/operationMng/purchaseOrder' && "text-[#F79E1B]"
+                                    "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
+                                    pathname.startsWith ('/dashboard/operationMng/purchaseOrder' )&& "text-[#F79E1B]"
                                 )}
                             >
                                 <LuShoppingCart className="h-3 w-3" />
@@ -58,7 +58,7 @@ export default function DashboardSideBar() {
                                 href="/dashboard/operationMng/stock"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/operationMng/stock' && "text-[#F79E1B]"
+                                    pathname.startsWith('/dashboard/operationMng/stock') && "text-[#F79E1B]"
                                 )}
                             >
                                 <LiaTagsSolid className="h-3 w-3" />
@@ -67,8 +67,8 @@ export default function DashboardSideBar() {
                             <Link
                                 href="/dashboard/operationMng/receipt"
                                 className={clsx(
-                                    "flex items-center gap-2 rounded-lg px-3 pt-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/operationMng/receipt' && "text-[#F79E1B]"
+                                    "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
+                                    pathname.startsWith ('/dashboard/operationMng/receipt') && "text-[#F79E1B]"
                                 )}
                             >
                                 <IoReceiptOutline className="h-3 w-3" />

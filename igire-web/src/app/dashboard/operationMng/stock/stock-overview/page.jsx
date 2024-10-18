@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
-import { FaPlusCircle,FaFileExport } from "react-icons/fa";
+import { FaPlusCircle,FaFileDownload } from "react-icons/fa";
 import { MdMoreHoriz } from "react-icons/md";
 import {
   getCoreRowModel,
@@ -208,7 +208,7 @@ export default function Stock() {
           />
         </div>
 
-        <div className="flex space-x-2">
+        <div className="flex  space-x-2">
           <select
             className="border  px-1 text-[15px] py-2 rounded-md"
             value={locationFilter}
@@ -224,12 +224,12 @@ export default function Stock() {
             onClick={handleExportPDF}
             className="flex items-center text-[15px] px-1 py-2 border rounded-md bg-white"
           >
-            <FaFileExport className="mr-1" /> Export
+            <FaFileDownload  className="mr-1" /> <span className="hidden md:inline">Download</span> 
           </button>
 
           <a href="add-stock">
             <button className="flex items-center px-1 py-2 text-[15px] border rounded-md bg-green-600 text-white">
-              <FaPlusCircle className="mr-1" /> Add stock
+              <FaPlusCircle className="mr-1" /> <span className="hidden md:inline">Add stock</span> 
             </button>
           </a>
         </div>

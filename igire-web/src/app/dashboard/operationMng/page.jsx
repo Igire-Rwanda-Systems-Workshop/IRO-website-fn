@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { CheckCircle2, AlertCircle, XCircle, Database } from 'lucide-react';
+import { Database } from 'lucide-react';
 import Image from 'next/image';
 
 const data = [
@@ -18,23 +18,23 @@ const data = [
 ];
 
 const StatusCard = ({ title, percentage, imageSrc, color }) => (
-    <Card className="w-[calc(33.333%-0.75rem)]">
+    <Card className="w-full sm:w-[calc(33.333%-0.75rem)] flex-shrink-0">
         <CardContent className="flex flex-col items-center justify-center p-6">
             <div className='flex items-start gap-3'>
                 <img src={imageSrc} alt={title} className="w-8 h-8 mb-2" />
                 <p className="text-[18px] text-muted-foreground">{title}</p>
             </div>
             <CardTitle className={`text-[24px] font-bold ${color}`}>{percentage}</CardTitle>
-
         </CardContent>
     </Card>
 );
 
 export default function Dashboard() {
     
-    return <>
-        <div className="p-8">
-            <div className="flex justify-between gap-4 mb-8">
+    return (
+        <div className="w-full p-2 md:p-8">
+            {/* Status Cards */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
                 <StatusCard
                     title="Approved"
                     percentage="91.7%"
@@ -55,8 +55,10 @@ export default function Dashboard() {
                 />
             </div>
 
-            <div className='flex gap-5 justify-center'>
-                <Card className="  w-full">
+            {/* Financial Transactions and Total Orders */}
+            <div className='flex flex-col md:flex-row gap-5 justify-center items-center'>
+                {/* Financial Transactions Card */}
+                <Card className="w-full">
                     <CardHeader>
                         <CardTitle>Financial Transactions</CardTitle>
                     </CardHeader>
@@ -74,13 +76,14 @@ export default function Dashboard() {
                     </CardContent>
                 </Card>
 
-                <Card>
+                {/* Total Orders Card */}
+                <Card className="w-full md:w-[45%]">
                     <CardContent className="flex flex-col items-start p-6">
                         <div className='flex mb-8'>
                             <Database className="w-10 h-16 mr-4 text-green-500" />
                             <CardTitle className="text-xl font-medium">Total Orders</CardTitle>
                         </div>
-                        <div >
+                        <div>
                             <p className="text-sm text-muted-foreground mb-1 font-bold">Items: <span className="font-normal text-orange-500 font-bold">37</span></p>
                             <p className="text-sm text-muted-foreground font-bold">Amount: <span className="font-normal text-orange-500 font-bold">200.00 RWF</span></p>
                         </div>
@@ -88,6 +91,5 @@ export default function Dashboard() {
                 </Card>
             </div>
         </div>
-    </>
-
+    );
 }

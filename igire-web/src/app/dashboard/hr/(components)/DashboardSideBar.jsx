@@ -1,8 +1,8 @@
 'use client';
 import clsx from 'clsx';
 import { GoHome } from "react-icons/go";
-import { LuShoppingCart } from "react-icons/lu";
-import { IoReceiptOutline } from "react-icons/io5";
+import { HiOutlineUsers } from "react-icons/hi";
+import { LiaTagsSolid } from "react-icons/lia";
 import { HiOutlineArchiveBox } from "react-icons/hi2";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import Link from 'next/link';
@@ -15,8 +15,8 @@ export default function DashboardSideBar() {
 
     return (
         <div className="desktop:block hidden h-full">
-            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] pt-10
-                text-white bg-[#0B3004]">
+            <div className="sticky top-0 flex h-full max-h-screen flex-col gap-[9rem] pt-10 
+                text-white bg-[#0B3004] border-r">
                 <div className="flex h-[55px] items-center justify-between px-3 w-full">
                     <div className="flex items-center">
                         <Image
@@ -31,46 +31,56 @@ export default function DashboardSideBar() {
                         </p>
                     </div>
                 </div>
-                <div className="flex-1 overflow-auto py-10">
-                    <nav className="grid items-start pl-8 text-md gap-[9rem]">
-                        <div className='flex flex-col gap-3.5'>
+                <div className="flex-1 overflow-auto py-2">
+                    <nav className="grid items-start pl-8 text-md gap-[10rem]">
+                        <div>
                             <Link
-                                href="/dashboard/finance"
+                                href="/dashboard/hr"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all",
-                                    pathname === '/dashboard/finance' && "text-[#F79E1B]"
+                                    pathname === '/dashboard/hr' && "text-[#F79E1B]"
                                 )}
                             >
                                 <GoHome className="h-3 w-3" />
                                 Home
                             </Link>
                             <Link
-                                href="/dashboard/finance/request"
+                                href="/dashboard/hr/applications"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/finance/request' && "text-[#F79E1B]"
+                                   pathname.startsWith('/dashboard/hr/applications') && "text-[#F79E1B]"
                                 )}
                             >
-                                <LuShoppingCart className="h-3 w-3" />
-                                Transactions
+                                <HiOutlineUsers className="h-3 w-3" />
+                                Applications
                             </Link>
                             <Link
-                                href="/dashboard/finance/receipt"
+                                href="/dashboard/hr/appointments"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/finance/receipt' && "text-[#F79E1B]"
+                                    pathname.startsWith('/dashboard/hr/appointments') && "text-[#F79E1B]"
                                 )}
                             >
-                                <IoReceiptOutline className="h-3 w-3" />
-                                Receipt
+                                <LiaTagsSolid className="h-3 w-3" />
+                                Appointments
+                            </Link>
+                            <Link
+                                href="/dashboard/hr/hiring"
+                                className={clsx(
+                                    "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
+                                    pathname.startsWith('/dashboard/hr/hiring') && "text-[#F79E1B]"
+                                )}
+                            >
+                                <HiOutlineArchiveBox className="h-3 w-3" />
+                                Initiate hiring
                             </Link>
                         </div>
                         <div>
                             <Link
-                                href="/dashboard/finance/logout"
+                                href="/dashboard/hr/logout"
                                 className={clsx(
                                     "flex items-center gap-2 rounded-lg px-3 py-2 transition-all hover:text-[#F79E1B]",
-                                    pathname === '/dashboard/finance/logout' && "text-[#F79E1B]"
+                                    pathname === '/dashboard/hr/logout' && "text-[#F79E1B]"
                                 )}
                             >
                                 <RiLogoutCircleLine className="h-3 w-3" />

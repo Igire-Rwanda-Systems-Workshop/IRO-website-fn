@@ -1,7 +1,6 @@
 'use client';
 import clsx from 'clsx';
 import { GoHome } from "react-icons/go";
-import { HiOutlineUsers } from "react-icons/hi";
 import { LuShoppingCart } from "react-icons/lu";
 import { HiOutlineArchiveBox } from "react-icons/hi2";
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -32,8 +31,8 @@ export default function DashboardSideBar() {
                     </div>
                 </div>
                 <div className="flex-1 overflow-auto py-10">
-                    <nav className="grid items-start pl-8 text-md gap-[12rem]">
-                        <div>
+                    <nav className="grid items-start pl-8 text-md gap-[9rem]">
+                        <div className='flex flex-col gap-3.5'>
                             <Link
                                 href="/dashboard/projectDir"
                                 className={clsx(

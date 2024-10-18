@@ -22,24 +22,22 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation';
 
 export default function DashboardNavBar({ children }) {
-    
+
     const pathname = usePathname();
     const getPageTitle = () => {
         switch (pathname) {
-            case '/dashboard/operationMng/purchaseOrder':
-                return 'Purchase order';
-            case '/dashboard/operationMng/purchaseOrder/purchase-new':
-                    return 'Purchase new product';    
-            case '/dashboard/operationMng/stock':
-                return 'Stock';
-            case '/dashboard/operationMng/stock/stock-overview':
-                    return 'Stock Over view';
-            case '/dashboard/operationMng/stock/add-stock':
-                return 'Add stock';    
-            case '/dashboard/operationMng/receipt':
-                return 'Receipt';
+            case '/dashboard/hr/appointments':
+                return 'Appointments';
+            case '/dashboard/hr/applications':
+                return 'Applications';
+            case '/dashboard/hr/applications/applicantInfo':
+                return 'Applicants Information';
+            case '/dashboard/hr/hiring':
+                return 'Initiate hiring';
+            case '/dashboard/hr/hiring/hiringRecords':
+                return 'Hiring records';
             default:
-                return 'Operation Manager Dashboard';
+                return 'HR Dashboard';
         }
     };
 
@@ -58,7 +56,7 @@ export default function DashboardNavBar({ children }) {
                         </SheetHeader>
                         <div className="flex-col items-start space-y-3 mt-[50px] bg-white">
                             <DialogClose asChild>
-                                <Link href="/dashboard/operationMng">
+                                <Link href="/dashboard">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <GoHome className="h-3 w-3" />
                                         Home
@@ -66,26 +64,26 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/operationMng/purchaseOrder">
+                                <Link href="/dashboard/users">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineUsers className="h-3 w-3" />
-                                        Purchase order
+                                        Applications
                                     </Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/operationMng/stock">
+                                <Link href="/dashboard/transactions">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LiaTagsSolid className="h-3 w-3" />
-                                        stock
+                                        Appointments
                                     </Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/operationMng/receipt">
+                                <Link href="/dashboard/stock">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineArchiveBox className="h-3 w-3" />
-                                        receipt
+                                        Initiate hiring
                                     </Button>
                                 </Link>
                             </DialogClose>
@@ -113,13 +111,13 @@ export default function DashboardNavBar({ children }) {
                         <Button variant="ghost">Home</Button>
                     </Link>
                     <Link href="/dashboard/users">
-                        <Button variant="ghost">Purchase order</Button>
+                        <Button variant="ghost">Applications</Button>
                     </Link>
                     <Link href="/dashboard/transaction">
-                        <Button variant="ghost">Stock</Button>
+                        <Button variant="ghost">Appointments</Button>
                     </Link>
                     <Link href="/dashboard/stock">
-                        <Button variant="ghost">Receipt</Button>
+                        <Button variant="ghost">Initiate hiring</Button>
                     </Link>
                     <Link href="/dashboard/logout">
                         <Button variant="ghost">Logout</Button>
