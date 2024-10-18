@@ -26,14 +26,20 @@ export default function DashboardNavBar({ children }) {
     const pathname = usePathname();
     const getPageTitle = () => {
         switch (pathname) {
-            case '/dashboard/admin/users':
-                return 'Users';
-            case '/dashboard/admin/transaction':
-                return 'Transactions';
-            case '/dashboard/admin/stock':
+            case '/dashboard/operationMng/purchaseOrder':
+                return 'Purchase order';
+            case '/dashboard/operationMng/purchaseOrder/purchase-new':
+                    return 'Purchase new product';    
+            case '/dashboard/operationMng/stock':
                 return 'Stock';
+            case '/dashboard/operationMng/stock/stock-overview':
+                    return 'Stock Over view';
+            case '/dashboard/operationMng/stock/add-stock':
+                return 'Add stock';    
+            case '/dashboard/operationMng/receipt':
+                return 'Receipt';
             default:
-                return 'Operation manager Dashboard';
+                return 'Operation Manager Dashboard';
         }
     };
 
@@ -52,7 +58,7 @@ export default function DashboardNavBar({ children }) {
                         </SheetHeader>
                         <div className="flex-col items-start space-y-3 mt-[50px] bg-white">
                             <DialogClose asChild>
-                                <Link href="/dashboard">
+                                <Link href="/dashboard/operationMng">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <GoHome className="h-3 w-3" />
                                         Home
@@ -60,26 +66,26 @@ export default function DashboardNavBar({ children }) {
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/users">
+                                <Link href="/dashboard/operationMng/purchaseOrder">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineUsers className="h-3 w-3" />
-                                        Manage Users
+                                        Purchase order
                                     </Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/transaction">
+                                <Link href="/dashboard/operationMng/stock">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <LiaTagsSolid className="h-3 w-3" />
-                                        Transactions
+                                        stock
                                     </Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/dashboard/stock">
+                                <Link href="/dashboard/operationMng/receipt">
                                     <Button variant="outline" className="w-full flex justify-start pl-4 gap-3">
                                         <HiOutlineArchiveBox className="h-3 w-3" />
-                                        Stock
+                                        receipt
                                     </Button>
                                 </Link>
                             </DialogClose>
@@ -107,13 +113,13 @@ export default function DashboardNavBar({ children }) {
                         <Button variant="ghost">Home</Button>
                     </Link>
                     <Link href="/dashboard/users">
-                        <Button variant="ghost">Manage Users</Button>
+                        <Button variant="ghost">Purchase order</Button>
                     </Link>
                     <Link href="/dashboard/transaction">
-                        <Button variant="ghost">Transaction</Button>
+                        <Button variant="ghost">Stock</Button>
                     </Link>
                     <Link href="/dashboard/stock">
-                        <Button variant="ghost">Stock</Button>
+                        <Button variant="ghost">Receipt</Button>
                     </Link>
                     <Link href="/dashboard/logout">
                         <Button variant="ghost">Logout</Button>
