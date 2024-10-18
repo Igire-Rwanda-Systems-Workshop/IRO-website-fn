@@ -40,13 +40,13 @@ const ManageUsers = () => {
 
   return (
     <>
-      <div className='p-8'>
+      <div className='p-2 sm:p-8'>
         <div>
           <div>
-            <p className='text-[18px] items-center flex justify-between'>
+            <p className='text-[18px] sm:items-center gap-3 flex flex-col sm:flex-row items-start justify-between'>
               Manage User
               <span>
-                <div className="relative w-80 ">
+                <div className="relative sm:w-80 w-full ">
                   <Input
                     placeholder="Search user..."
                     // value={deniedGlobalFilter}
@@ -69,7 +69,7 @@ const ManageUsers = () => {
           </div>
         </div>
 
-        <div className="flex gap-[2rem] w-full pt-[2.7rem]">
+        <div className="flex flex-col sm:flex-row gap-[2rem] w-full pt-[2.7rem] z-0">
           <UserCard
             name="Hirwa J. Eric"
             email="useremail@gmail.com"
