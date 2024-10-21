@@ -97,7 +97,7 @@ export default function DashboardNavBar({ children }) {
                     </SheetContent>
                 </Sheet>
 
-                <div className="flex-1 px-6 z-99">
+                <div className="flex-1 px-6 z-1">
                     <Link href="/dashboard" className="flex items-center justify-between">
                         <span className="text-lg font-semibold">{getPageTitle()}</span>
                         <span><img src="/userAvatar.png" alt="User Avatar" className="w-8 h-8 rounded-full mb-2" /></span>
