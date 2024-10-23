@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { HiOutlineSearch } from "react-icons/hi";
+import { FaTrash, FaCalendarAlt } from "react-icons/fa";
 import RescheduleModal from "./rescheduleModal";
 
 const appointmentData = [
@@ -31,32 +32,20 @@ const appointmentData = [
     },
 ];
 
-const applicantColumns = [
-    { accessorKey: "applicantName", header: "Applicant Name" },
-    { accessorKey: "jobTitle", header: "Job Title" },
-    { accessorKey: "startTime", header: "Start Time" },
-    { accessorKey: "endTime", header: "End Time" },
-    {
-        accessorKey: "status",
-        header: "Status",
-        cell: ({ row }) => {
-            const status = row.status;
-            let statusClass = "text-yellow-500";
-            if (status === "Confirmed") statusClass = "text-blue-500";
-            return <div className={statusClass}>{status}</div>;
-        },
-    },
-];
-
 export default function Appointments() {
     const [categoryFilter, setCategoryFilter] = useState("");
     const [globalFilter, setGlobalFilter] = useState("");
-    const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+    const [isRescheduleModalOpen, setIsRescheduleModalOpen] = useState(false);
     const [selectedAppointment, setSelectedAppointment] = useState(null);
     const router = useRouter();
 
-    const toggleScheduleModal = () => {
-        setIsScheduleModalOpen((prev) => !prev);
+    const toggleRescheduleModal = () => {
+        setIsRescheduleModalOpen((prev) => !prev);
+    };
+
+    const handleRescheduleClick = (appointment) => {
+        setSelectedAppointment(appointment.original);
+        toggleRescheduleModal();
     };
 
     const filteredAppointmentData = appointmentData.filter((row) => {
@@ -65,10 +54,42 @@ export default function Appointments() {
         return nameMatch && jobMatch;
     });
 
-    const handleRowClick = (appointment) => {
-        setSelectedAppointment(appointment);
-        toggleScheduleModal();
-    };
+    const applicantColumns = [
+        { accessorKey: "applicantName", header: "Applicant Name" },
+        { accessorKey: "jobTitle", header: "Job Title" },
+        { accessorKey: "startTime", header: "Start Time" },
+        { accessorKey: "endTime", header: "End Time" },
+        {
+            accessorKey: "status",
+            header: "Status",
+            cell: ({ row }) => {
+                const status = row.status;
+                let statusClass = "text-yellow-500";
+                if (status === "Confirmed") statusClass = "text-blue-500";
+                return <div className={statusClass}>{status}</div>;
+            },
+        },
+        {
+            header: "Actions",
+            id: "actions",
+            cell: ({ row }) => (
+                <div className="flex space-x-2">
+                    <button
+                        onClick={() => handleRescheduleClick(row)}
+                        className="text-blue-600 hover:text-blue-900"
+                    >
+                        <FaCalendarAlt />
+                    </button>
+                    <button
+                        onClick={() => console.log("Delete clicked")}
+                        className="text-red-600 hover:text-red-900"
+                    >
+                        <FaTrash />
+                    </button>
+                </div>
+            ),
+        },
+    ];
 
     return (
         <div className="w-full p-6">
@@ -97,7 +118,6 @@ export default function Appointments() {
                 </div>
             </div>
 
-            <h1 className="mt-8 text-md font-semibold">Applicant Records</h1>
             <div className="rounded-md border">
                 <Table>
                     <TableHeader>
@@ -110,7 +130,7 @@ export default function Appointments() {
                     <TableBody>
                         {filteredAppointmentData.length ? (
                             filteredAppointmentData.map((row, rowIndex) => (
-                                <TableRow key={rowIndex} onClick={() => handleRowClick(row)} className="cursor-pointer">
+                                <TableRow key={rowIndex} className="cursor-pointer">
                                     {applicantColumns.map((column) => (
                                         <TableCell key={column.accessorKey}>
                                             {column.cell ? column.cell({ row }) : row[column.accessorKey]}
@@ -128,11 +148,10 @@ export default function Appointments() {
                     </TableBody>
                 </Table>
             </div>
-            
-            {/* Reschedule Modal for handling appointment rescheduling */}
+
             <RescheduleModal
-                isOpen={isScheduleModalOpen}
-                onClose={toggleScheduleModal}
+                isOpen={isRescheduleModalOpen}
+                onClose={toggleRescheduleModal}
                 appointment={selectedAppointment}
             />
         </div>

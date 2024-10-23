@@ -7,10 +7,9 @@ import { Label } from "@/components/ui/label";
 import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
 
 const AddUserModal = ({ isOpen, onClose }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState('');
 
@@ -20,15 +19,15 @@ const AddUserModal = ({ isOpen, onClose }) => {
 
   const handleAddUser = async () => {
     const userData = {
-      firstName,
-      lastName,
+      name,
       email,
-      password,
+      // password,
       role,
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/Employee/Emply-users/signup', {
+      const response = await fetch('https://iro-website-bn-vx04.onrender.com/api/Inventory/users/create-user', {
+        
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -36,8 +35,11 @@ const AddUserModal = ({ isOpen, onClose }) => {
         },
         body: JSON.stringify(userData),
       });
+      console.log(response);
 
       if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
         throw new Error('Network response was not ok');
       }
 
@@ -46,16 +48,14 @@ const AddUserModal = ({ isOpen, onClose }) => {
 
       onClose();
 
-      setFirstName('');
-      setLastName('');
+      setName('');
       setEmail('');
-      setPassword('');
+      // setPassword('');
       setRole('');
-    } catch (error) {
-      if (error === '400') {
-        console.error('Error adding user:', error);
-        alert('Error adding user: ' + error.message);
-      }
+    } 
+    catch (error) {
+      console.error('Error adding user:', error);
+      alert('Error adding user: ' + error.message);
     }
   };
 
@@ -68,22 +68,12 @@ const AddUserModal = ({ isOpen, onClose }) => {
 
         <div className="space-y-4">
           <div className="flex flex-col">
-            <Label htmlFor="name">First name</Label>
+            <Label htmlFor="name">Full name</Label>
             <Input
               id="name"
-              placeholder="First name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="mt-2"
-            />
-          </div>
-          <div className="flex flex-col">
-            <Label htmlFor="name">Last name</Label>
-            <Input
-              id="name"
-              placeholder="Last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Enter name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="mt-2"
             />
           </div>
@@ -97,7 +87,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
               className="mt-2"
             />
           </div>
-          <div className="flex flex-col relative">
+          {/* <div className="flex flex-col relative">
             <label htmlFor="password" className="block text-gray-700">
               Password
             </label>
@@ -116,7 +106,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
             >
               {showPassword ? <HiOutlineEye size={20} /> : <HiOutlineEyeOff size={20} />}
             </span>
-          </div>
+          </div> */}
           <div className="flex flex-col">
             <Label htmlFor="role">Role</Label>
             <Select id="role" onValueChange={setRole}>
@@ -124,9 +114,9 @@ const AddUserModal = ({ isOpen, onClose }) => {
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="admin">Admin</SelectItem>
-                <SelectItem value="user">User</SelectItem>
-                <SelectItem value="manager">Manager</SelectItem>
+                <SelectItem value="Human Resource">Human Resources</SelectItem>
+                <SelectItem value="Project Director">Project Director</SelectItem>
+                <SelectItem value="Operation manager">Operation Manager</SelectItem>
               </SelectContent>
             </Select>
           </div>

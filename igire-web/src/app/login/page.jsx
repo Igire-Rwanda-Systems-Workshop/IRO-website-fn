@@ -28,7 +28,7 @@ const Login = () => {
     const loginData = { email, password };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Inventory/users/login`, {
+      const response = await fetch('http://iro-website-bn-vx04.onrender.com/api/Inventory/users/login', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -44,7 +44,7 @@ const Login = () => {
 
       const result = await response.json();
       setSuccessMessage("Login successful!");
-      localStorage.setItem('token', result.token); // Store token securely or consider using cookies
+      localStorage.setItem('token', result.token); 
       router.push('/dashboard/admin');
 
     } catch (error) {
