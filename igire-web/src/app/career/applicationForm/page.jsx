@@ -38,7 +38,7 @@ const customStyles = {
 const page = () => {
   return (
     <div className='py-14 '>
-      <div className="max-w-2xl mx-auto p-6 bg-gray-100 shadow-md rounded-md">
+      <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg bg-gray-50">
         <h2 className="text-2xl font-semibold mb-4">Apply for this job</h2>
 
         <form className="space-y-6 text-gray-700">

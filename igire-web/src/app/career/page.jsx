@@ -38,7 +38,7 @@ const Page = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10  ">
           {/* Teamwork */}
-          <div className="flex flex-col items-start px-6 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
+          <div className="flex flex-col items-start px-6 py-3 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
             <div className="p-4 bg-blue-100 rounded-md mb-4">
               <AiOutlineTeam className="w-10 h-10" />
             </div>
@@ -47,7 +47,7 @@ const Page = () => {
           </div>
 
           {/* Secured Future */}
-          <div className="flex flex-col items-start px-6 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
+          <div className="flex flex-col items-start px-6 py-3 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
             <div className="p-4 bg-green-100 rounded-md mb-4">
               <IoIosRefresh className="w-10 h-10" />
             </div>
@@ -56,7 +56,7 @@ const Page = () => {
           </div>
 
           {/* Impact on Community */}
-          <div className="flex flex-col items-start px-6 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
+          <div className="flex flex-col items-start px-6 py-3 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
             <div className="p-4 bg-gray-100 rounded-md mb-4">
               <RiUserHeartLine className="w-10 h-10" />
             </div>
@@ -65,7 +65,7 @@ const Page = () => {
           </div>
 
           {/* Upgrade Skills */}
-          <div className="flex flex-col items-start px-6 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
+          <div className="flex flex-col items-start px-6 py-3 transform transition-transform duration-300 hover:-translate-y-3 hover:border-2 hover:border-orange-300">
             <div className="p-4 bg-red-100 rounded-md mb-4">
               <GiUpgrade className="w-10 h-10" />
             </div>
@@ -157,7 +157,7 @@ const Page = () => {
       </div>
 
       {/* Subscribe Section */}
-      <div className="container py-10 items-center text-center">
+      <div className="py-10 items-center text-center">
         <h2 className="text-2xl font-bold mb-4">SUBSCRIBE</h2>
         <p className="text-lg mb-6">Do you want to get news about our upcoming positions and news</p>
 
