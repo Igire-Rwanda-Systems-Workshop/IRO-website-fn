@@ -1,80 +1,152 @@
-import React from 'react';
-import { FaEye } from "react-icons/fa";
-import { TbTargetArrow } from "react-icons/tb";
-import Image from 'next/image';
+import DefaultBanner from "@/components/DefaultBanner";
+import React from "react";
+import AboutPageFakes from "@/fakeDatas/AboutPageFakes";
+import Founders from "@/components/sections/Founders";
+import ImpactSection from "@/components/sections/ImpactSection";
+import HomePageFakes from "@/fakeDatas/HomePageFakes";
+import Image from "next/image";
+import Link from "next/link";
 
-const About = () => {
+const AboutPage = () => {
+  const { bannerData, topSection, programs, logos } = AboutPageFakes;
+
   return (
-    <section>
-      <div className="w-full">
-        <Image src="/dyna.png" alt="IRO Logo" width={1440} height={688} className="w-full h-auto" />
+    <>
+      {/* Banner Section */}
+      <div>
+        <DefaultBanner
+          title={bannerData.title}
+          backgroundImage={bannerData.backgroundImage}
+        />
       </div>
 
-      <div className="mx-4 md:mx-[50px] lg:mx-[150px] px-4 md:px-[30px] lg:px-[60px] py-[20px] lg:py-[40px] flex flex-col relative shadow-2xl bg-white dark:bg-gray-800 -top-[200px] md:-top-[320px]">
-        <div>
-          <div className="text-center text-orange-400 py-4 md:py-[30px] lg:py-[40px] text-[20px] md:text-[22px] lg:text-[24px] font-bold dark:text-orange-300">Our Story</div>
+      {/* Content Section */}
+      <div className="max-w-screen-xl mx-auto font-ibm py-8 px-4 md:px-8 lg:px-10">
+        {/* Top Section with Description and Map Image */}
+        <div className="flex flex-col md:flex-row justify-between items-center md:space-x-4 my-10">
+          <div className="flex-1 text-black p-4 flex items-center justify-center text-center md:text-left text-xl">
+            {topSection.description}
+          </div>
+
+          <div className="relative flex-1 h-40 md:h-96 mt-4 md:mt-0">
+            <Image
+              src={topSection.mapImage}
+              alt="Map Image"
+              layout="fill"
+              objectFit="fill"
+              className="rounded w-full h-screen object-scale-down"
+            />
+          </div>
         </div>
-        <div className="text-[16px] md:text-[18px] pb-4 md:pb-[30px] lg:pb-[40px] text-center text-gray-900 dark:text-gray-300">
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officialdeserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing nuielit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamlkbnoico laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor indom . Morbi auctor tortor at lorem tempus, et ornare nunc aliquet. Aenean ultricies lorem non lorem elementum, vitae scelerisque mi viverra.      </p>
-          <p>
-          anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing nuielit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamlkbnoico laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor indom . Morbi auctor tortor at lorem tempus, et ornare nunc aliquet. Aenean ultricies lorem non lorem elementum, vitae scelerisque mi viverra.</p>
+        {/* vision and mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 font-ibm">
+          <div className="w-full px-5">
+            <div className="flex flex-col justify-center items-center md:justify-start md:items-start gap-5">
+              <Image src="/mission.svg" width={100} height={100} alt="vision" />
+              <h1 className="font-extrabold text-2xl">Our Mission</h1>
+            </div>
+            <div className="py-5">
+              <p>
+                Our mission is to foster economic independence and create pathways to
+                lasting success.
+              </p>
+            </div>
+          </div>
+          <div className="w-full px-5">
+            <div className="flex flex-col justify-center items-center md:justify-start md:items-start gap-5">
+              <Image src="/vision.svg" width={100} height={100} alt="mission" />
+              <h1 className="font-extrabold text-2xl">Our Vision</h1>
+            </div>
+            <div className="py-5">
+              <p>
+                Our vision is to create a future where all Rwandan youth,
+                especially women, are empowered with digital skills ad an
+                opportunities driving sustainable growth & innovation in their
+                communities & beyond
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Values */}
+        <div className="w-full flex flex-col justify-center items-center">
+          <div className="w-full px-5">
+            <div className="flex flex-col gap-5 justify-center items-center">
+              <Image src="/values.svg" width={100} height={100} alt="values" />
+              <h1 className="font-extrabold text-2xl">Our Values</h1>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-10">
+             <div>
+                <p className="font-bold">EMPOWEMENT</p>
+                <p>Enabling youth, especially women, to gain the skills and confidence needed to succeed.</p>
+             </div>
+             <div>
+                <p className="font-bold">INCLUSIVITY</p>
+                <p>Promoting equal access to opportunies, regardless of background or socio-economic status.</p>
+             </div>
+             <div>
+                <p className="font-bold">SUSTAINABILITY</p>
+                <p>Creating lasting impact through programs that promote long-term growth & econimic independence.</p>
+             </div>
+             <div>
+                <p className="font-bold">COLLABORATION</p>
+                <p>Building strong partnerships to maximize impact and create opportunities for the community.</p>
+             </div>
+             <div>
+                <p className="font-bold">INTEGRITY</p>
+                <p>Upholding transparency, accontability, and ethical practices in all our actions .</p>
+             </div>
+            </div>
+          </div>
+        </div>
+        {/* Programs Title */}
+        <h2 className="mt-10 text-4xl font-semibold text-center text-black">
+          Programs
+        </h2>
+
+        {/* Programs Section */}
+        <div className="flex flex-col md:flex-row justify-between items-stretch my-12 space-y-4 md:space-y-0 md:space-x-4 mx-3">
+          {programs.map((program, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center md:items-start space-y-4 p-6 rounded border border-gray-300 shadow-md bg-white w-full md:flex-1"
+            >
+              {/* Logo and Title in Row */}
+              <div className="flex items-center space-x-4 justify-center md:justify-start">
+                <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gray-100 rounded">
+                  <Image
+                    src={logos[index]?.src || "/default-logo.png"}
+                    alt={logos[index]?.name || "Program Logo"}
+                    width={50}
+                    height={50}
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-semibold text-black">
+                  {program.title}
+                </h3>
+              </div>
+
+              {/* Program Description */}
+              <div className="text-black text-center md:text-left flex-grow">
+                <p className="text-xl">{program.description}</p>
+                <Link href="/programs" passHref>
+                  <button className="bg-black text-white p-2 rounded mt-4 hover:bg-gray-800 transition">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <div className="px-4 md:px-[50px] lg:px-[150px] py-[20px] md:py-[40px] lg:py-[40px] -mt-[170px] md:-mt-[300px]">
-        <div className="text-orange-400 dark:text-orange-300 text-[20px] md:text-[24px] font-bold pt-[20px] md:pt-[40px] lg:pt-[50px]">Responsibilities</div>
-        <div className="flex flex-col md:flex-row text-[16px] md:text-[18px] py-[20px] md:py-[30px] lg:py-[40px] gap-[40px] md:gap-[60px] text-gray-900 dark:text-gray-300">
-          <div className="w-full md:w-[50%]">
-          i Aenean aliquam ante vulputate ipsum ullamcorper sollicitudin
-
-ii Curabitur accumsan, eros ut laoreet convallis, enim sapien ullamcorper lectus, sit amet convallis augue mauris at mi. Sed non ex et quam pretium molestie
-
-iii Nulla non sapien vitae orci porttitor tristique. Vestibulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nullam vehiculaiii Nulla non sapien vitae orci porttitor tristique. Vestibulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nullam vehicula
-          </div>
-          <div className="w-full md:w-[50%]">i Aenean aliquam ante vulputate ipsum ullamcorper sollicitudin
-
-ii Curabitur accumsan, eros ut laoreet convallis, enim sapien ullamcorper lectus, sit amet convallis augue mauris at mi. Sed non ex et quam pretium molestie
-
-iii Nulla non sapien vitae orci porttitor tristique. Vestibulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nullam vehiculaiii Nulla non sapien vitae orci porttitor tristique. Vestibulum consequat felis pharetra egestas sagittis. Morbi gravida magna fringilla elit convallis facilisis. Sed id congue risus. Sed at dolor id nisi elementum condimentum. Nullam vehicula
-          </div>
-        </div>
+      <div>
+        <ImpactSection ImpactData={HomePageFakes.ImpactData} />
       </div>
-
-      <div className="px-4 md:px-[50px] lg:px-[150px] text-center py-[20px] md:pb-[20px] lg:pb-[30px]">
-        <div className="flex flex-col md:flex-row gap-[40px] md:gap-[100px] lg:gap-[210px]">
-          <div className="w-full md:w-[50%] flex flex-col items-center text-[#34A853] dark:text-green-400 transform transition-transform duration-300 hover:-translate-y-5 hover:border-2 hover:border-[#34A853] dark:hover:border-green-400">
-            <FaEye className="mr-2 text-[35px] md:text-[45px]" />
-            <span className="text-[20px] md:text-[24px] pb-[10px] md:pb-[15px]">Vision</span>
-            <div className="text-[16px] md:text-[18px] p-2 text-gray-900 dark:text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non risus lorem. Nunc interdum enim a dolor luctus, quis ultrices felis dignissim. Nam volutpat dui condimentum, malesuada leo eu, rutrum neque.</div>
-          </div>
-
-          <div className="w-full md:w-[50%] flex flex-col items-center text-orange-400 dark:text-orange-300 transform transition-transform duration-300 hover:-translate-y-5 hover:border-2 hover:border-orange-400 dark:hover:border-orange-300">
-            <TbTargetArrow className="mr-2 text-[35px] md:text-[45px]" />
-            <span className="text-[20px] md:text-[24px] pb-[10px] md:pb-[15px]">Mission</span>
-            <div className="text-[16px] md:text-[18px] p-2 text-gray-900 dark:text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non risus lorem. Nunc interdum enim a dolor luctus, quis ultrices felis dignissim. Nam volutpat dui condimentum, malesuada leo eu, rutrum neque. </div>
-          </div>
-        </div>
+      <div>
+        <Founders foundersData={AboutPageFakes.foundersData} />
       </div>
-
-      <div className="px-4 md:px-[100px] lg:px-[300px] py-[40px] md:py-[60px] lg:py-[80px]">
-        <div className="text-[20px] md:text-[24px] pb-[10px] md:pb-[20px] text-black dark:text-white text-center font-bold">Founders</div>
-        <div className="flex flex-col md:flex-row justify-around items-center gap-[30px] md:gap-[50px] lg:gap-[100px]">
-          <div className="text-center">
-            <Image src="/mbnd 1.png" alt="IRO Logo" width={220} height={250} className="py-[20px]" />
-            <div className="pb-[10px] md:pb-[20px] font-bold text-gray-900 dark:text-white">Mbanda <br /> Innocent</div>
-            <div className="text-gray-700 dark:text-gray-400">CO-FOUNDER</div>
-          </div>
-          <div className="text-center">
-            <Image src="/jj 1.png" alt="IRO Logo" width={220} height={300} className="py-[20px]" />
-            <div className="pb-[10px] md:pb-[20px] font-bold text-gray-900 dark:text-white">Iradukunda <br /> Jean Jacques</div>
-            <div className="text-gray-700 dark:text-gray-400">CO-FOUNDER</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </>
   );
-}
+};
 
-export default About;
+export default AboutPage;

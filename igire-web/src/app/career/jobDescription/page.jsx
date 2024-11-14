@@ -3,7 +3,7 @@ import { FaRegClock, FaArrowRight } from "react-icons/fa";
 
 const JobDescription = () => {
   return (
-    <section className="container py-14 max-w-full w-full">
+    <section className="container py-14 max-w-full w-full font-ibm">
       <div className="flex flex-col lg:flex-row mx-4 lg:mx-32 gap-4">
         <div className="">
           <h1 className="text-xl lg:text-2xl font-bold mb-4">Lorem Ipsum</h1>

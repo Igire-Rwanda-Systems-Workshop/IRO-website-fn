@@ -5,22 +5,12 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-	'./pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-	'./app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-	screens: {
-		'tablet': '640px',  
-		'laptop': '1024px',  
-		'desktop': '1280px',
-		sm: '640px',
-      md: '768px', 
-      lg: '1024px',
-      xl: '1280px',
-	},
-  
   	extend: {
+  		fontFamily: {
+  			ibm: ['var(--font-ibm-plex-sans)']
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
